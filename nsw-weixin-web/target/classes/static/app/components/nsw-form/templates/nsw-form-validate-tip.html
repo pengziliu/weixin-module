@@ -1,0 +1,4 @@
+<div ng-show="settings.ngModel.$dirty && settings.ngModel.$invalid" style="width: 100%;clear: both">
+    <div class="err" ng-repeat="error in errors"
+          ng-if="error.invalid">{{error.tip}}</div>
+</div>

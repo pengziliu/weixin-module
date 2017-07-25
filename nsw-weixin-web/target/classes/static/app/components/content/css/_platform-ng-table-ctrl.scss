@@ -1,0 +1,816 @@
+$fontFamilyDefault: 'Microsoft YaHei' !default;
+$fontSizeDefault: 14px !default;
+$fontSizeSm: 12px !default;
+
+$tableActiveColor: #ebebeb !default;
+$tableViColor: #bababa !default;
+
+
+/*table icon*/
+@mixin iconPosition ($x, $y) {
+    background-position: $x $y;
+}
+
+.table-icon{
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    background: url("../images/table-icon.png") no-repeat;
+    &.ticon-edit{
+        @include iconPosition(0, 1px);
+    }
+    &.ticon-preview{
+        @include iconPosition(-35px, 1px);
+    }
+    &.ticon-remove{
+        @include iconPosition(-1px, -40px);
+    }
+    &.ticon-copy{
+        @include iconPosition(-36px, -40px);
+    }
+    &.ticon-link{
+        @include iconPosition(0, -78px);
+    }
+}
+
+/*backup*/
+.table-backup {
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 100;
+    width: 45px;
+    height: 45px;
+    background: url("../images/table-backup.png") no-repeat #fff;
+    background-size: 100%;
+    cursor: pointer;
+}
+
+.clearFix {
+    &:after {
+        content: '.';
+        display: block;
+        height: 0;
+        visibility: hidden;
+        clear: both;
+    }
+
+    zoom: 1;
+}
+
+.ngtable-nav {
+    height: 52px;
+}
+
+.more-search {
+    border: 1px solid #ddd;
+    .nsw-checkbox {
+        padding-right: 5px;
+    }
+}
+
+.ngtable-searchbar {
+    width: 37%;
+    position: absolute;
+    top: 10px;
+    right: 3px;
+    .advance {
+        padding-bottom: 5px;
+    }
+}
+
+.ng-table {
+    margin-bottom: 0;
+    font-size: $fontSizeDefault;
+    font-family: $fontFamilyDefault;
+    border-bottom-style: dotted;
+
+    p {
+        font-size: $fontSizeDefault;
+        font-family: $fontFamilyDefault;
+        margin-bottom: 0;
+    }
+
+    &.table > {
+        thead > tr > {
+            th, td {
+                position: relative;
+                border-width: 0 0 1px 0;
+                font-weight: normal;
+            }
+        }
+
+        tbody > tr > td {
+            position: relative;
+            border-width: 0 0 1px 0;
+            font-weight: normal;
+        }
+
+        thead > tr > th {
+            text-align: left;
+            color: #3e4048;
+        }
+
+        tbody > tr:last-child > td {
+            border-bottom: 0;
+        }
+    }
+    &.table-sm {
+        .title {
+            width: 180px;
+        }
+    }
+}
+
+.ng-table-counts.btn-group .btn {
+    height: auto;
+    line-height: normal;
+}
+
+.ng-table {
+    &.table > tbody > tr > td {
+        &:first-child {
+            width: 50px;
+            padding: 5px 5px 5px 15px;
+            text-align: center;
+        }
+
+        input[type='checkbox'] {
+            vertical-align: middle;
+        }
+
+        height: 62px;
+    }
+
+    &.table-hover > tbody > tr:hover, &.table-hover > tbody > tr.active {
+        background-color: $tableActiveColor;
+        > td {
+            background-color: transparent;
+        }
+    }
+
+    .number {
+        width: 50px;
+    }
+
+    .title {
+        width: 280px;
+        font-size: 0;
+
+        /*white-space:nowrap;*/
+
+        > img {
+            margin-right: 8px;
+            border-radius: 50%;
+            border: 3px solid #dcdcdc;
+            box-sizing: content-box;
+        }
+
+        &.noimg {
+            padding-right: 25px;
+            > .t-title {
+                max-width: 100%;
+            }
+            > .t-fastedit {
+                position: absolute;
+                top: 50%;
+                right: auto;
+                margin-top: -9px;
+            }
+            > div {
+                font-size: $fontSizeDefault;
+            }
+        }
+    }
+
+    .classify {
+        width: 130px;
+        & > p {
+            margin: 0;
+            max-height: 63px;
+            overflow: hidden;
+        }
+    }
+
+    .state {
+        width: 44px;
+        &.not-authed {
+            > i {
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    .inputrank {
+        width: 60px;
+    }
+
+    .count {
+        width: 120px;
+    }
+
+    .t-title {
+        width: auto;
+        max-width: 180px;
+        max-height: 63px;
+        font-size: $fontSizeDefault;
+        margin: 0;
+        padding: 0;
+        vertical-align: middle;
+        white-space: normal;
+        word-break: break-all;
+        word-wrap: break-word;
+        overflow: hidden;
+        display: inline-block;
+    }
+
+    .t-indent, .t-treeicon {
+        width: 20px;
+        height: 20px;
+        font-size: $fontSizeSm;
+        vertical-align: middle;
+        display: inline-block;
+    }
+
+    .t-indent {
+        &.t-join, &.t-joinbottom, &.t-line {
+            position: relative;
+        }
+
+        &.t-join {
+            &:before, &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 50%;
+                border-style: dotted;
+                border-color: #666;
+            }
+        }
+
+        &.t-joinbottom:after, &.t-line:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 50%;
+            border-style: dotted;
+            border-color: #666;
+        }
+
+        &.t-join {
+            &:before {
+                top: auto;
+                bottom: 0;
+                width: 50%;
+                border-width: 0 0 0 1px;
+            }
+
+            &:after {
+                width: 50%;
+                border-width: 0 0 1px 1px;
+            }
+        }
+
+        &.t-joinbottom:after {
+            width: 50%;
+            border-width: 0 0 1px 1px;
+        }
+
+        &.t-line:after {
+            width: 100%;
+            border-width: 0 0 1px 0;
+        }
+    }
+
+    th.sortable {
+        &.sort-desc, &.sort-asc {
+            background-color: #f6f6f6;
+        }
+    }
+
+    .fa-arrow-up {
+        margin-right: 5px;
+    }
+    .operation {
+        min-width: 160px;
+    }
+
+    .wrap-text {
+        white-space: normal;
+        word-break: break-all;
+        word-wrap: break-word;
+        display: block;
+    }
+}
+
+/*tree-icon*/
+
+.t-tree-icon {
+    text-align: center;
+    cursor: pointer;
+
+    &:after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: solid;
+        display: inline-block;
+    }
+
+    &.down:after {
+        border-width: 7px 5px 0;
+        border-top-color: #3e4048;
+    }
+
+    &.right:after {
+        border-width: 4px 0 4px 7px;
+        border-left-color: #3e4048;
+    }
+}
+
+/*icon*/
+
+.ng-table-icon {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #595c6e;
+    border-radius: 50%;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &.yes {
+        border-color: #66c495;
+        background-color: #66c495;
+    }
+
+    &.no {
+        border-color: #595c6e;
+    }
+}
+
+.icon-checkbox {
+    width: 14px;
+    height: 14px;
+    background: url("../images/icon-checkbox.png") no-repeat;
+    display: inline-block;
+    cursor: pointer;
+
+    &.on {
+        background-position: 0 -21px;
+    }
+
+    &.checked{
+        background-position: 0 -16px;
+    }
+
+    &.not {
+        background-position: 0 0;
+    }
+}
+
+/*ng-table-ctrl*/
+
+.ng-table {
+    .t-fastedit {
+        display: none;
+        vertical-align: middle;
+        margin-left: 5px;
+        font-size: $fontSizeSm;
+        cursor: pointer;
+    }
+
+    tr:hover .t-fastedit {
+        display: inline-block;
+    }
+
+    .inputrank > input {
+        width: 40px;
+        border: 0;
+
+        &:hover, &:focus {
+            border: 1px solid #ccc;
+        }
+
+        &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+            -webkit-appearance: none !important;
+            margin: 0;
+        }
+        &[type="number"] {
+            -moz-appearance: textfield;
+        }
+    }
+
+    .ngtable-handle {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        height: 100%;
+        padding: 0 10px;
+        white-space: nowrap;
+        background-color: $tableActiveColor;
+
+        &:after {
+            content: '';
+            width: 0;
+            height: 100%;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+
+    .ngtable-btn {
+        position: relative;
+        width: 20px;
+        height: 40px;
+        margin-left: 18px;
+        padding: 0 0 20px;
+        color: #fff;
+        border: 0;
+        vertical-align: middle;
+        background: none;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background-color: $tableViColor;
+            border-radius: 50%;
+        }
+
+        > .table-icon {
+            position: relative;
+            z-index: 2;
+        }
+
+        > p {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 60px;
+            margin-left: -30px;
+            font-size: $fontSizeSm;
+            color: $tableViColor;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:hover {
+            > p {
+                color: #515567;
+            }
+            &:before {
+                background-color: #f08300;
+            }
+        }
+
+        &:disabled {
+            > p {
+                color: $tableViColor;
+            }
+            &:before {
+                background-color: $tableViColor;
+            }
+        }
+
+        &:active {
+            &:before {
+                outline: 0;
+                background-image: none;
+                -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+                box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+            }
+        }
+    }
+
+    /*publishTime and action*/
+    .ngtable-action {
+        min-width: 155px;
+        padding: 0 5px;
+        .publish-time {
+            line-height: 18px;
+        }
+        .ngtable-handle {
+            position: relative;
+            height: 38px;
+            padding: 0 3px;
+            background-color: transparent;
+        }
+    }
+
+    tr:hover .ngtable-handle {
+        display: block;
+    }
+
+    tr:hover .ngtable-action {
+        .publish-time{
+            color: $tableViColor;
+        }
+    }
+}
+
+/*ngtable-handle*/
+
+/*ng-table-pagination*/
+
+div[ng-table-pagination] {
+    width: 50%;
+    display: inline-block;
+    text-align: right;
+}
+
+/*foot-toolbar*/
+
+.foot-toolbar {
+    width: 100%;
+    padding: 16px 15px;
+    background-color: #f6f6f6;
+    background-color: #f6f6f6;
+    border: 1px solid #ddd;
+    border-top: none;
+
+    &.fix-top{
+        padding-top: 0;
+    }
+
+    .tool-left {
+        width: 50%;
+        float: left;
+        text-align: left;
+        white-space: nowrap;
+    }
+
+    .tool-right {
+        width: 50%;
+        float: left;
+        text-align: right;
+    }
+
+    .tool-group {
+        width: 112px;
+        line-height: 24px;
+        font-size: 0;
+        margin-left: 22px;
+        text-align: center;
+        border: 1px solid #dcdcdc;
+        background-color: #fff;
+        display: inline-block;
+        vertical-align: middle;
+
+        .all-check {
+            border-right: 1px solid #3e4048;
+        }
+
+        > {
+            * {
+                font-size: $fontSizeSm;
+                vertical-align: middle;
+            }
+
+            a {
+                padding: 0 7px;
+            }
+
+            input {
+                margin: 0;
+            }
+        }
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &.single {
+            > a {
+                display: block;
+            }
+        }
+
+        &.double {
+            > *:first-child {
+                position: relative;
+                margin-right: 4px;
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 2px;
+                    right: -2px;
+                    width: 0;
+                    height: 11px;
+                    border-left: 1px solid #515567;
+                    display: block;
+                }
+            }
+            > *:last-child{
+                margin-right: 0;
+                &:after{
+                    display: none;
+                }
+            }
+        }
+
+        &.operation {
+            position: relative;
+            cursor: pointer;
+
+            .t-tree-icon {
+                margin-left: 0;
+                margin-right: 10px;
+            }
+
+            > ul {
+                display: none;
+                position: absolute;
+                bottom: 100%;
+                left: -1px;
+                z-index: 2;
+                width: 100%;
+                padding: 0;
+                margin: 0 0 1px;
+                border: 1px solid #dcdcdc;
+                border-bottom: 0;
+                background-color: #fff;
+                text-align: center;
+                box-sizing: content-box;
+
+                li {
+                    list-style-type: none;
+                    border-top: 2px dashed #e3e4e6;
+
+                    &:first-child {
+                        border-top: 0;
+                    }
+                }
+            }
+
+            &.menudown {
+                > ul {
+                    bottom: auto;
+                    top: 100%;
+                    margin: 1px 0 0;
+                    border: 1px solid #dcdcdc;
+                    border-top: 0;
+                }
+            }
+
+            &:hover {
+                border-color: #f08300;
+
+                span:first-child {
+                    color: #f08300;
+                }
+
+                .t-tree-icon.down:after {
+                    border-top-color: #f08300;
+                }
+
+                > ul {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+div[ng-table-pagination] {
+    display: none;
+}
+
+.nsw-page {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+
+    .num-info {
+        float: left;
+        text-align: center;
+        height: 26px;
+        line-height: 32px;
+    }
+
+    .num-select {
+        width: 60px;
+        float: left;
+        margin-left: 10px;
+
+        select {
+            width: 50px;
+            height: 26px;
+            margin-top: 3px;
+        }
+    }
+
+    .hd {
+        width: 78px;
+        float: right;
+        border: 1px solid #dcdcdc;
+        border-right: none;
+        margin-top: 3px;
+        margin-left: 10px;
+
+        a {
+            display: inline-block;
+            float: left;
+            line-height: 23px;
+            height: 24px;
+            text-align: center;
+            width: 50%;
+            border-right: 1px solid #dcdcdc;
+        }
+    }
+
+    .badge {
+        line-height: 1.7;
+        border-radius: 0;
+        margin: 3px 0 0 7px;
+    }
+}
+
+.table-main {
+    height: 620px;
+    border: 1px solid #ccc;
+
+    .ng-table {
+        border: 0;
+    }
+}
+
+.table-dragel {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 9px;
+    height: 100%;
+    background: none;
+    text-align: center;
+    cursor: col-resize;
+    &:after {
+        content: '';
+        display: inline-block;
+        width: 1px;
+        height: 100%;
+        background-color: #ccc;
+    }
+}
+
+.ng-table.table-drag {
+    thead {
+        th:hover {
+            > .table-dragel {
+                display: block;
+            }
+        }
+    }
+}
+
+div.margint5 {
+    margin-top: 5px !important;
+    margin-left: 0 !important;
+}
+
+span.paddL2 {
+    position: relative;
+    bottom: 2px;
+    font-weight: normal;
+    left: 3px;
+}
+
+label.marginr5 {
+    margin-right: 10px;
+}
+
+.empty-grid{
+    border-bottom: none;
+}
+
+.empty-grid-tip{
+    background-color: #ffffff;
+    border:solid #dcdcdc 1px;
+    border-top:none;
+
+    display: block;
+    width: 100%;
+    line-height: 72px;
+
+    text-align: center;
+    vertical-align: middle;
+
+    color:red;
+    font-size: 14px;
+}

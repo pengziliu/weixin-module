@@ -1,0 +1,14 @@
+@import '../../../components/content/css/platform-variables';
+.course-reg-list{
+  position:relative;
+  padding-top: 15px;
+  .name>*{
+    cursor: pointer;
+  }
+
+  .add-course{
+    position: absolute;
+    right: 0px;
+    top: -35px;
+  }
+}

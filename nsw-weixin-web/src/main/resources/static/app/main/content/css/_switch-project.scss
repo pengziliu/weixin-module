@@ -1,0 +1,124 @@
+@charset "utf-8";
+.switch-project{
+	text-align: left;
+	.title{
+		height:84px;
+		border:1px solid #f8a23b;
+		padding: 0 23px;
+		text-align: left;
+		line-height: 84px;
+	}
+	.project-list-panel{
+		margin-top: 30px;
+		border:1px solid #dedede;
+		.header{
+			height:60px;
+			padding:0 25px;
+			line-height:60px;
+			border-bottom: 1px solid #dcdcdc;
+			background-color: #f5f5f5;
+		}
+		.panel-body{
+			padding: 30px 25px;
+		}
+		.panel-body-left{
+			width:520px;
+			height:260px;
+			padding: 0;
+			margin: 0;
+			float: left;
+			li{
+				list-style: none;
+				width:230px;
+				height:260px;
+				float: left;
+				margin-right: 30px;
+				border:1px solid #dad9d7;
+				.icon{
+					width: 91px;
+					height:71px;
+					margin: 71px 0 0 68px;
+					background: url("../images/projects.png") no-repeat;
+				}
+				&:hover{
+					border-color: #f8a23b;
+					.pc-icon{
+						background-position:0 0px;
+					}
+					.mc-icon{
+						background-position:-91px 0;
+					}
+					.wechat-icon{
+						background-position:-182px 0px;
+					}
+					button{
+						display: block;
+					}
+				}
+				.pc-icon{
+					background-position:0 -71px;
+				}
+				.mc-icon{
+					background-position:-91px -71px;
+				}
+				.wechat-icon{
+					background-position:-182px -71px;
+				}
+				button{
+					border:none;
+					background-color: #f8a23b;
+					color: #ffffff;
+					width: 123px;
+					height:34px;
+					line-height: 34px;
+					text-align: center;
+					margin: 34px auto 0;
+					display: none;
+					border-radius: 3px;
+				}
+				
+			}
+		}
+		.panel-body-right{
+			float: left;
+			margin-left: 360px;
+			margin-top: 100px;
+			.nsw-klass{
+				border:none;
+				background-color: #f8a23b;
+				color: #ffffff;
+				width: 123px;
+				height:34px;
+				line-height: 34px;
+				text-align: center;
+				display: block;
+				border-radius: 3px;
+				margin-bottom: 25px;
+			}
+			p{
+				line-height: 38px;
+				font-size:16px;
+				text-align: center;
+				.project-state{
+					height:28px;
+					line-height: 28px;
+					padding: 0 14px;
+					color: #ffffff;
+					display: inline-block;
+					border-radius: 3px;
+					background-color:#65c498;
+				}
+				
+			}
+			.project-info{
+				span{
+					display: inline-block;
+					padding: 0px 15px;
+					background: #ccc;
+					border-radius: 16px;
+					font-size: 16px;
+				}
+			}
+		}
+	}
+}

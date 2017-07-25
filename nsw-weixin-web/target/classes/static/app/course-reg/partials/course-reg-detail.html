@@ -1,0 +1,91 @@
+<div class="course-reg-detail">
+
+    <div nsw-form class="form-horizontal form-validation formMinWidth" nsw-form novalidate>
+        <div nsw-tabset data-options="options.tabs">
+            <div data-nsw-tab="baseInfo" class="base-info">
+                <div nsw-form-row nsw-label="姓名">
+                    <div class="form-content" ng-bind="currentItem.username"></div>
+                </div>
+                <div nsw-form-row nsw-label="昵称">
+                    <div class="form-content" ng-bind="currentItem.nickname"></div>
+                </div>
+                <div nsw-form-row nsw-label="手机">
+                    <div class="form-content" ng-bind="currentItem.phoneNum"></div>
+                </div>
+                <div nsw-form-row nsw-label="公司">
+                    <div class="form-content" ng-bind="currentItem.company"></div>
+                </div>
+                <div nsw-form-row nsw-label="职位">
+                    <div class="form-content" ng-bind="currentItem.job"></div>
+                </div>
+                <div nsw-form-row nsw-label="备注"><!--TODO-->
+                    <div class="form-content" ng-bind="currentItem.remark"></div>
+                </div>
+                <div nsw-form-row nsw-label="行业">
+                    <div class="form-content" ng-bind="currentItem.industry"></div>
+                </div>
+                <div nsw-form-row nsw-label="地址">
+                    <div class="form-content" >{{currentItem.province}}{{currentItem.city?','+currentItem.city:''}}</div>
+                </div>
+                <div class="footer">
+                    <button class="btn btn-default nsw-btn btn-cancel" data-ng-click="goBack()"><label
+                            class="nsw-btn-cancal-icon"></label><span
+                            class="nsw-btn-text nsw-btn-text-black">返回</span></button>
+                </div>
+            </div>
+            <div data-nsw-tab="courseHistory" class="history">
+                <div>
+                    <table ng-table="tableParams" ng-class="!historySearchOptions.totalRows&& 'empty-grid'"
+                           class="table table-hover table-condensed table-bordered table-striped">
+                        <tr ng-repeat="row in $data" ng-class="{'active':isCurrentItem(row)}">
+                            <td data-title="'序号'" class="number">
+                                {{(historySearchOptions.pageNum-1)*historySearchOptions.pageSize+$index+1}}
+                            </td>
+                            <td data-title="'课程标题'" class="title" style="width:70px">
+                                <img class="img-header" width="50" height="50" nsw-src="{{row.picUrl}}" alt="{{row.title}}" ng-click="showCourse(row)">
+                            </td>
+                            <td data-title="''" class="title">
+                                <p class="t-title" style="cursor:pointer" ng-click="showCourse(row)">{{row.title}}</p>
+                            </td>
+                            <td data-title="'讲师'" class="title">
+                                <p>{{row.teacher}}</p>
+                            </td>
+                            <td data-title="'课程状态'" class="title">
+                                <p data-ng-if ="row.status===1"> 未开始</p>
+                                <p data-ng-if ="row.status===2"> 进行中</p>
+                                <p data-ng-if ="row.status===3"> 已结束</p>
+                            </td>
+
+                            <td data-title="'开课时间'" class="ngtable-action" sortable="'startTime'">
+                                <p class="publish-time">{{row.activeStartTime}}</p>
+
+                                <div class="ngtable-handle">
+                                    <button type="button" class="ngtable-btn" ng-click="showCourse(row)">
+                                        <span class="table-icon ticon-edit"></span>
+                                        <p>查看</p>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="data-footer foot-toolbar clearFix" ng-show="historySearchOptions.totalRows">
+                        <div class="pull-right search">
+                            <div platform-pagenation search-options="historySearchOptions" nsw-refresh="searchHistoryData()">
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="!historySearchOptions.totalRows" class="empty-grid-tip">
+                        <span>暂无记录</span>
+                    </div>
+                </div>
+                <div class="footer">
+                    <button class="btn btn-default nsw-btn btn-cancel" data-ng-click="goBack()"><label
+                            class="nsw-btn-cancal-icon"></label><span
+                            class="nsw-btn-text nsw-btn-text-black">返回</span></button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

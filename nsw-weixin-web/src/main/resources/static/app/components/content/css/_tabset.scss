@@ -1,0 +1,121 @@
+/*tabset*/
+.nsw-tabset {
+	position: relative;
+}
+
+
+.nsw-tabset {
+	.title {
+		font-size: 0px;
+		.required {
+			display: inline-block;
+			color: red !important;
+			font-size: 12px;
+			padding-right: 4px;
+		}
+		.content {
+			font-size: 12px;
+		}
+		.transcluded {
+			padding: 15px;
+			border-left: 1px solid #ddd;
+			border-bottom: 1px solid #ddd;
+			border-right: 1px solid #ddd;
+		}
+	}
+	.remove-icon {
+		font-size: 11px;
+		margin-left: 15px;
+		cursor: pointer;
+		color: white;
+	}
+	
+	.tab-nav-header {
+		border-bottom: 1px solid #ddd;
+		/*border-left: 1px solid #ddd;
+		border-right: 1px solid #ddd;*/
+	}
+	
+	.tab-header:hover .remove-icon {
+		color: #f08300;
+	}
+	
+	.tab-nav-container, .tab-prev, .tab-next {
+		display: inline-block;
+		font-size: 12px;
+		vertical-align: middle;
+		margin-bottom: -1px;
+	}
+	
+	.tab-nav-container {
+		height: 36px;
+		overflow: hidden;
+		width: 100%;
+		
+	}
+	
+	.tab-btn {
+		&.disabled{
+			//cursor: not-allowed;
+			//background-color: #dddddd;
+		}
+	}
+	
+	.tab-prev, .tab-next {
+		line-height: 1.5;
+		border: 1px solid #ddd;
+		padding: 8px 15px;
+		cursor: pointer;
+	}
+	
+	.tab-nav-header {
+		//overflow: hidden;
+	}
+
+	.tab-title{
+		cursor: pointer;
+		padding: 8px 15px;
+		position: relative;
+		color: #555;
+		background-color: #fff;
+		border-right: 1px solid $line-color;
+
+		&:hover{
+			color:$promise-color;
+			padding-bottom: 8px;
+		}
+
+		&:focus{
+			color: #f08300;
+			background-color: #fff;
+			border: 1px solid #ddd;
+			border-bottom-color: transparent;
+			cursor: default;
+		}
+	}
+	
+	.tab-nav-header > span:hover {
+		background-color: #ddd;
+		
+	}
+	.nav-tabs{
+		white-space: nowrap;
+	}
+	.nav-tabs > li{
+		display: inline-block;
+		/*float: none;*/
+	}
+	.nav-tabs > li > a > span {
+		vertical-align: middle;
+		max-width: 123px;
+		display: inline-block;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+}
+
+
+.tab-footer .tab-btn-default{text-align: center;
+	font-size: 15px;
+	width: 73px;}

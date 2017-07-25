@@ -1,0 +1,6 @@
+<div class="nsw-text">
+	<input class="form-control {{size}}" placeholder="{{placeholder}}" ng-model="model" ng-blur="inputBlurFun()" ng-change="valueChanged()"/>
+	<span ng-if="!hideClearBtn" class="nsw-icon icon-clear" ng-click="clearValue()"></span>
+	<!--<span ng-if="maxCount&&hasWordCounter" class="count">{{inputCount}}/{{maxCount}}字符</span>-->
+	<span ng-if="maxCount&&hasWordCounter&&isOverCount" class="count count2"><span class="err">{{inputCount}}/</span>{{maxCount}}</span>
+</div>

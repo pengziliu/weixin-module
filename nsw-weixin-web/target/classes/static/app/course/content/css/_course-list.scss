@@ -1,0 +1,33 @@
+.course-list{
+  padding-top: 15px;
+  position: relative;
+  .add-course{
+    position: absolute;
+    right: 0px;
+    top: -35px;
+  }
+
+  .search-one{
+    margin-right: 15px;
+  }
+
+  .t-title{
+    cursor: pointer;
+    width: 180px;
+
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  .title{
+    &>img.img-header{
+      width: auto;
+      height: 50px;
+      border-radius: 0;
+      cursor: pointer;
+    }
+  }
+}

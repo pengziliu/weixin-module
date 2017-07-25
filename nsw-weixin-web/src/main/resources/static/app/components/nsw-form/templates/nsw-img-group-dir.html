@@ -1,0 +1,16 @@
+<span class="glyphicon glyphicon-menu-left loopleft" ng-show="imgs.length>maxItems" ng-click="back()"></span>
+<div class="loopbox col-sm-11 nsw-img-group">
+    <ul>
+        <li ng-repeat="(key,img) in imgs" class="img-container">
+            <div nsw-img ng-if="showAlt" nsw-img-src="{{nswImgSrc}}" data-is-upload="{{img.isUpload}}"
+                 data-has-progress="{{img.hasProgress}}" data-process="{{img.process}}"
+                 data-alt-readonly="{{altReadonly}}" nsw-img-alt="{{nswImgAlt}}"
+                 nsw-img-enable-edit="{{nswImgEnableEdit}}" nsw-img-remove="{{imgRemoveAttr}}" data-is-local-img="{{isLocalImg}}">
+            </div>
+            <div nsw-img ng-if="!showAlt" nsw-img-src="{{nswImgSrc}}" data-is-upload="{{img.isUpload}}"
+                 data-has-progress="{{img.hasProgress}}" data-process="{{img.process}}"
+                 nsw-img-remove="{{imgRemoveAttr}}" data-is-local-img="{{isLocalImg}}"></div>
+        </li>
+    </ul>
+</div>
+<span class="glyphicon glyphicon-menu-right loopright" ng-show="imgs.length>maxItems" ng-click="mov()"></span>

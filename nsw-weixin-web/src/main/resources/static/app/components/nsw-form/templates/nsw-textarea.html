@@ -1,0 +1,4 @@
+<div class="nsw-text">
+    <textarea rows="{{rows}}" class="form-control {{size}}" placeholder="{{placeholder}}" ng-model="model" ng-change="valueChanged()"></textarea>
+    <span ng-if="maxCount&&isOverCount" class="count count2"><span class="err">{{inputCount}}/</span>{{maxCount}}</span>
+</div>

@@ -1,0 +1,11 @@
+<div>
+    <div class="labelWidthClass">
+        <!--放置这个是为了可以动态计算标签的宽度，且不用第个label去刷，提高效率!-->
+        <!--<style>
+            .form-row-label[name="{{$$nsw_form_name}}"]:first-child{
+                width:{{$$nswFormLabelWidth}}px;
+            }
+        </style>-->
+    </div>
+    <div name="{{$$nsw_form_name}}" class="form-body" ng-transclude></div>
+</div>

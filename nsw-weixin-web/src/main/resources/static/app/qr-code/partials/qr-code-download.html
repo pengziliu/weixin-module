@@ -1,0 +1,48 @@
+<div class="message-box menu-modal nsw-modal member-create-modal">
+	<div class="modal-header">
+		<h4 class="modal-title">二维码尺寸</h4>
+		<a class="diaremove" ng-click="closeModal(false)"></a>
+	</div>
+	<div class="modal-body message-body qr-code-download">
+		<table  class="table" width="550">
+			<tr>
+				<th>二维码边长(cm）       </th>
+				<th>   建议扫描距离（米）</th>
+				<th >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下载&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+			</tr>
+			<tr class="data-row">
+				<td>8cm</td>
+				<td>0.5m</td>
+				<td ><span  ng-click="getQrCodeSize(8)" class="download-icon"></span></td>
+			</tr>
+			<tr class="data-row">
+				<td>12cm</td>
+				<td>0.8m</td>
+				<td ><span  ng-click="getQrCodeSize(12)" class="download-icon"></span></td>
+			</tr>
+			<tr class="data-row">
+				<td>15cm</td>
+				<td>1m</td>
+				<td ><span  ng-click="getQrCodeSize(15)" class="download-icon"></span></td>
+			</tr>
+			<tr class="data-row">
+				<td>30cm</td>
+				<td>1.5m</td>
+				<td ><span  ng-click="getQrCodeSize(30)" class="download-icon"></span></td>
+			</tr>
+			<tr class="data-row">
+				<td>50cm</td>
+				<td>2.5m</td>
+				<td ><span ng-click="getQrCodeSize(50)" class="download-icon"></span></td>
+			</tr>
+		</table>
+		二维码尺寸请按照43像素的整数倍缩放，以保持最佳效果
+		<div class="clearfix"></div>
+			<div class="model-foot">
+				<button class="btn btn-default nsw-btn btn-cancel" ng-click="closeModal(false)"><label
+						class="nsw-btn-cancal-icon"></label><span
+						class="nsw-btn-text nsw-btn-text-black">关闭</span></button>
+			</div>
+
+	</div>
+</div>

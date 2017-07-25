@@ -1,0 +1,57 @@
+<div class="extend-fields-list">
+	<div>
+		<button type="button" ng-click="addFields()" class="btn btn-default btn-hover no-radus-btn btnh26">
+			<span class="addattr"></span>新建属性
+		</button>
+		<div class="nature-import" webuploader config="config" uploader="getUploader"
+		     style="display:none;width:78px;height:28px;vertical-align:middle;"></div>
+	</div>
+	<div class="padtop20">
+		<table class="table table-hover">
+			<thead>
+			<tr>
+				<th>属性名称</th>
+				<th>类型</th>
+				<th data-ng-if = "type!=='product'">字段ID</th>
+				<th>选项(文本框为空)</th>
+				<th>排序</th>
+				<th class="text-right">操作</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr ng-repeat="list in optionFields" data-ng-if="!list.deleted">
+				<td>
+					{{list.title}}
+					<a class="pull-right editFields" ng-click="editProduct(list)" title="快速编辑">
+							<i class="page-icon icon-edit"></i>
+					</a>
+				</td>
+				<td><span data-ng-show="list.formType=='text'">文本框</span>
+					<span data-ng-show="list.formType=='radio'">单选框</span>
+					<span data-ng-show="list.formType=='checkbox'">多选框</span>
+					<span data-ng-show="list.formType=='select'">下拉框</span>
+					<span data-ng-show="list.formType=='singleimage'">图片</span>
+					<span data-ng-show="list.formType=='attachment'">附件</span></td>
+				<td data-ng-if = "type!=='product'" data-ng-bind="list.fieldName"></td>
+				<td>{{ list.data | fileOption}}</td>
+				<td>
+					<span><i ng-hide="$first" class="page-icon icon-arrowup"
+					         ng-click="interchange(list,optionFields[$index-1])"></i>&nbsp;
+							<i ng-hide="$last" class="page-icon icon-arrowdown"
+							   ng-click="interchange(list,optionFields[$index+1])"></i>
+					</span>
+				</td>
+				<td class="text-right">
+					<div class="btn-group">
+						<button type="button" class="btn btn-default btn-sm"
+						        ng-click="deletOtherType($index,list)">
+							<i class="fa extend-delete  fa-trash-o"></i>
+							<span class="fa-delete-text">删除</span>
+						</button>
+					</div>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

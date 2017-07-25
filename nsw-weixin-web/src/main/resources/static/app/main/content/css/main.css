@@ -1,0 +1,217 @@
+/*base style*/
+.promise-color {
+  color: #f08300; }
+
+.promise-gray-color {
+  color: #dedede; }
+
+.font-gray {
+  color: #595D6D; }
+
+.c-header {
+  height: 114px;
+  border-bottom: 2px solid #f18d14;
+  background: url(../images/hd_bg.jpg) no-repeat center top/cover; }
+
+.c-container {
+  overflow: hidden; }
+
+.c-header .c-logo {
+  float: left;
+  margin-top: 26px;
+  width: 334px;
+  height: 64px;
+  background: url(../images/logo.png) no-repeat; }
+
+.c-header .c-manager {
+  float: right;
+  text-align: right;
+  padding-top: 22px; }
+
+.c-header .c-manager > div {
+  padding-top: 15px; }
+
+.c-header .c-manager a {
+  padding: 0px 10px; }
+
+.c-header .c-manager .c-user-name {
+  color: #f08300; }
+
+.c-footer {
+  height: 64px;
+  line-height: 32px;
+  text-align: center;
+  background-color: #fffaf4;
+  border-top: 2px solid #f18d14; }
+
+.c-main {
+  min-height: 300px;
+  padding-bottom: 40px;
+  margin-left: 220px;
+  background: #ffffff;
+  overflow: hidden; }
+
+.c-menu-icon {
+  width: 27px;
+  height: 27px;
+  position: absolute;
+  top: 10px;
+  left: 42px;
+  display: inline-block;
+  background: url(../images/menu_sprit.png) no-repeat; }
+
+.c-menu-home {
+  background-position: 0 0px; }
+  .c-menu-home.active {
+    background-position: -27px 0px; }
+
+.c-menu-autoreply {
+  background-position: 0px -27px; }
+  .c-menu-autoreply.active {
+    background-position: -27px -27px; }
+
+.c-menu-menu {
+  background-position: 0px -54px; }
+  .c-menu-menu.active {
+    background-position: -27px -54px; }
+
+.c-menu-member {
+  background-position: 0px -81px; }
+  .c-menu-member.active {
+    background-position: -27px -81px; }
+
+.c-menu-mass-message {
+  background-position: 0px -108px; }
+  .c-menu-mass-message.active {
+    background-position: -27px -108px; }
+
+.c-menu-material {
+  background-position: 0px -135px; }
+  .c-menu-material.active {
+    background-position: -27px -135px; }
+
+.c-menu-qrcode {
+  background-position: 0px -189px; }
+  .c-menu-qrcode.active {
+    background-position: -27px -189px; }
+
+.c-menu-message {
+  background-position: 0px -162px; }
+  .c-menu-message.active {
+    background-position: -27px -162px; }
+
+.c-message-template {
+  background-position: 0px -216px; }
+  .c-message-template.active {
+    background-position: -27px -216px; }
+
+.c-log {
+  background-position: 0px -243px; }
+  .c-log.active {
+    background-position: -27px -243px; }
+
+.wechat-icon {
+  background: url("../images/wechat.png") no-repeat;
+  padding-left: 30px;
+  display: inline-block;
+  height: 21px; }
+
+.switch-project {
+  text-align: left; }
+  .switch-project .title {
+    height: 84px;
+    border: 1px solid #f8a23b;
+    padding: 0 23px;
+    text-align: left;
+    line-height: 84px; }
+  .switch-project .project-list-panel {
+    margin-top: 30px;
+    border: 1px solid #dedede; }
+    .switch-project .project-list-panel .header {
+      height: 60px;
+      padding: 0 25px;
+      line-height: 60px;
+      border-bottom: 1px solid #dcdcdc;
+      background-color: #f5f5f5; }
+    .switch-project .project-list-panel .panel-body {
+      padding: 30px 25px; }
+    .switch-project .project-list-panel .panel-body-left {
+      width: 520px;
+      height: 260px;
+      padding: 0;
+      margin: 0;
+      float: left; }
+      .switch-project .project-list-panel .panel-body-left li {
+        list-style: none;
+        width: 230px;
+        height: 260px;
+        float: left;
+        margin-right: 30px;
+        border: 1px solid #dad9d7; }
+        .switch-project .project-list-panel .panel-body-left li .icon {
+          width: 91px;
+          height: 71px;
+          margin: 71px 0 0 68px;
+          background: url("../images/projects.png") no-repeat; }
+        .switch-project .project-list-panel .panel-body-left li:hover {
+          border-color: #f8a23b; }
+          .switch-project .project-list-panel .panel-body-left li:hover .pc-icon {
+            background-position: 0 0px; }
+          .switch-project .project-list-panel .panel-body-left li:hover .mc-icon {
+            background-position: -91px 0; }
+          .switch-project .project-list-panel .panel-body-left li:hover .wechat-icon {
+            background-position: -182px 0px; }
+          .switch-project .project-list-panel .panel-body-left li:hover button {
+            display: block; }
+        .switch-project .project-list-panel .panel-body-left li .pc-icon {
+          background-position: 0 -71px; }
+        .switch-project .project-list-panel .panel-body-left li .mc-icon {
+          background-position: -91px -71px; }
+        .switch-project .project-list-panel .panel-body-left li .wechat-icon {
+          background-position: -182px -71px; }
+        .switch-project .project-list-panel .panel-body-left li button {
+          border: none;
+          background-color: #f8a23b;
+          color: #ffffff;
+          width: 123px;
+          height: 34px;
+          line-height: 34px;
+          text-align: center;
+          margin: 34px auto 0;
+          display: none;
+          border-radius: 3px; }
+    .switch-project .project-list-panel .panel-body-right {
+      float: left;
+      margin-left: 360px;
+      margin-top: 100px; }
+      .switch-project .project-list-panel .panel-body-right .nsw-klass {
+        border: none;
+        background-color: #f8a23b;
+        color: #ffffff;
+        width: 123px;
+        height: 34px;
+        line-height: 34px;
+        text-align: center;
+        display: block;
+        border-radius: 3px;
+        margin-bottom: 25px; }
+      .switch-project .project-list-panel .panel-body-right p {
+        line-height: 38px;
+        font-size: 16px;
+        text-align: center; }
+        .switch-project .project-list-panel .panel-body-right p .project-state {
+          height: 28px;
+          line-height: 28px;
+          padding: 0 14px;
+          color: #ffffff;
+          display: inline-block;
+          border-radius: 3px;
+          background-color: #65c498; }
+      .switch-project .project-list-panel .panel-body-right .project-info span {
+        display: inline-block;
+        padding: 0px 15px;
+        background: #ccc;
+        border-radius: 16px;
+        font-size: 16px; }
+
+/*# sourceMappingURL=main.css.map */

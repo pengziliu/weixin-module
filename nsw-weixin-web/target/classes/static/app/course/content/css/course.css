@@ -1,0 +1,29 @@
+.course-list {
+  padding-top: 15px;
+  position: relative; }
+  .course-list .add-course {
+    position: absolute;
+    right: 0px;
+    top: -35px; }
+  .course-list .search-one {
+    margin-right: 15px; }
+  .course-list .t-title {
+    cursor: pointer;
+    width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical; }
+  .course-list .title > img.img-header {
+    width: auto;
+    height: 50px;
+    border-radius: 0;
+    cursor: pointer; }
+
+.course-detail .nsw-money {
+  padding: 3px 10px; }
+.course-detail .name {
+  cursor: pointer; }
+
+/*# sourceMappingURL=course.css.map */

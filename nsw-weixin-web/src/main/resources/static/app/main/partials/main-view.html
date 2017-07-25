@@ -1,0 +1,21 @@
+<div class="c-menu-container" data-ng-if="showMenus">
+	<div data-platform-menu data-ng-model="menuOptions"  ></div>
+	<div class="menu-info">
+		<!--<div class="menu-info-in" data-ng-if="isWelcome&&leftEdit">-->
+		<!--<a href="#">公众账号<br/>-->
+		<!--用不了怎么办</a>-->
+		<!--</div>-->
+		<div class="menu-info-two"  data-ng-if="!isWelcome">
+			<a href="javascript:void(0)" data-ng-click="editAccount()">
+				<img src="main/content/images/white.png" alt=""/>
+				<strong data-ng-bind="currentWechtInfo.nick_name"></strong>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="c-main" data-ng-class="{'main-no-menus':!showMenus}">
+	<div platform-bread-nav="breadNavs" data-ng-if="showMenus"></div>
+	<div class="c-main-box">
+		<ui-view></ui-view>
+	</div>
+</div>

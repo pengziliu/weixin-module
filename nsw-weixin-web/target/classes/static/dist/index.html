@@ -1,0 +1,56 @@
+<!DOCTYPE html><html><head><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta charset=utf-8><title></title><script>if (/\?([^#]+)(#[^\?]+)(\?)/.test(window.location.href)) {
+      //原始URL： http://192.168.21.28:8881/?from=groupmessagte&xxxxx#/course/detail/59391e031b123aa4b1694078/wx6628d33ac319e694?appid=xxxx&openid=ffffff
+      //替换成：http://192.168.21.28:8881/#/course/detail/59391e031b123aa4b1694078/wx6628d33ac319e694?from=groupmessagte&xxxxx&appid=xxxx&openid=ffffff
+      href = window.location.href.replace(/\?([^#]+)(#[^\?]+)(\?)/, '$2?$1&');
+      window.location.href = href;
+    } else if (/\?([^#]+)(#[^\?]+)/.test(window.location.href)) {
+      //原始URL： http://192.168.21.28:8881/?from=groupmessagte&xxxxx#/course/list/
+      //替换成：http://192.168.21.28:8881/#/course/list/?from=groupmessagte&xxxxx
+      href = window.location.href.replace(/\?([^#]+)(#[^\?]+)/, '$2?$1');
+      window.location.href = href;
+    }
+
+    function getQueryString(name) {
+      var reg = new RegExp("(?|&)" + name + "=([^&]*)(&|$)", "i");
+      var r = window.location.hash.substr(1).match(reg);
+      if (r != null) return unescape(r[2]); return null;
+    }
+    // -----------ajax方法-----------//
+    function httpGet(url, callback) {
+      var http = new XMLHttpRequest();
+      http.open("get", url, true);
+      http.send(null);
+      http.onreadystatechange = function () {
+        if (http.readyState == 1 || http.readyState == 2 || http.readyState == 3) {
+          // 本地提示：加载中
+        }
+        if (http.readyState == 4 && http.status == 200) {
+          var d = JSON.parse(http.responseText);
+          // 处理返回结果
+          callback(d);
+        }
+      };
+
+    }
+    if(!sessionStorage.getItem('openid')){
+    	if(getQueryString('openid')){
+        sessionStorage.setItem('openid',getQueryString('openid'));
+      }
+    }
+    if(!sessionStorage.getItem('appId')){
+      if(getQueryString('appId')){
+        sessionStorage.setItem('appId',getQueryString('appId').replace(/\?[^\?]*/g,'').replace(/\&[^\?]*/g,''));
+      }
+    }
+    if(!sessionStorage.getItem('openid')){
+      if(window.location.hash.match(/\/wx[a-zA-Z0-9]*/g).length){
+        var appId =  window.location.hash.match(/\/wx[a-zA-Z0-9]*/g)[0].replace('\/','');
+      }
+    	var url = '/wx/active/getOauth?appId='+appId+'&domain='+encodeURIComponent(window.location.href);
+    	function openWeixin(data){
+    		if(data.isSuccess){
+          window.location.href = data.data;
+        }
+      }
+      httpGet(url,openWeixin);
+    }</script><link href=./static/css/app.d552035525905b85011d9a0256b3024b.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=./static/js/manifest.85f2da7ab5237b6f5316.js></script><script type=text/javascript src=./static/js/vendor.801e9afef091c3134248.js></script><script type=text/javascript src=./static/js/app.327ca0451ea4d0d66d98.js></script><script type=text/javascript src=./static/js/plugins.3167b18cefa09efa4497.js></script></body><script src=http://res.wx.qq.com/open/js/jweixin-1.2.0.js></script></html>

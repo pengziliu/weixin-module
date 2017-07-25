@@ -1,0 +1,13 @@
+<div class="nsw-tpl">
+	<ul class="product-tpl">
+		<li ng-repeat="row in options.tempList" ng-click="selectPageTpl(row)" class="product-tpl-list">
+			<a href="javascript:void(0)">
+				<div class="item  tpl-img">
+					<img class="img product-tpl-picture" nsw-src="{{row.imgSm ? row.imgSm : '../../img/nsw.png'}}"  title="{{row.name}}">
+					<i class="fa fa-check" ng-show="selectedItems[row._id]"></i>
+				</div>
+				<span class="product-tpl-picture-text">{{row.name}}</span>
+			</a>
+		</li>
+	</ul>
+</div>

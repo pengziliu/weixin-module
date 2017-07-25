@@ -1,0 +1,111 @@
+<div class="course-detail">
+
+	<form name="courseDetail" novalidate>
+		<div class="form-horizontal form-validation formMinWidth" nsw-form nsw-nav-hint>
+			<div nsw-tabset data-options="options.tabs">
+				<div data-nsw-tab="baseInfo">
+					<div nsw-form-row nsw-label="课程标题">
+						<div nsw-text ng-model="currentItem.title" data-nsw-max-length='200' required></div>
+					</div>
+					<div nsw-form-row nsw-label="原价">
+						<div nsw-text class="pull-left" ng-model="currentItem.originalPrice" nsw-money data-nsw-max-length='200'></div>
+						<div class="pull-left nsw-money">元</div>
+					</div>
+					<div nsw-form-row nsw-label="现价">
+						<div nsw-text class="pull-left" ng-model="currentItem.price" nsw-money data-nsw-max-length='200' required></div>
+						<div class="pull-left nsw-money">元</div>
+					</div>
+
+					<div nsw-form-row nsw-label="开课时间">
+						<div nsw-time-picker ng-model="currentItem.activeStartTime" nsw-max-date="{{currentItem.finishTime}}" size="size-md" required></div>
+					</div>
+
+					<div nsw-form-row nsw-label="讲师">
+						<div nsw-text ng-model="currentItem.teacher" data-nsw-max-length="15" required></div>
+					</div>
+
+					<div nsw-form-row nsw-label="结束时间">
+						<div nsw-time-picker ng-model="currentItem.finishTime" size="size-md" nsw-min-date="{{currentItem.activeStartTime}}" required></div>
+					</div>
+					<div nsw-form-row nsw-label="课程图片">
+						<div platform-img-material-selector ng-model="currentItem.picUrl" data-after-select="imgSelected()" required></div>
+					</div>
+
+					<div nsw-form-row nsw-label="课程链接">
+						<div nsw-text nsw-outer-link ng-model="currentItem.activeUrl" data-nsw-max-length='200' required></div>
+					</div>
+					<div nsw-form-row nsw-label="课程概要">
+						<div nsw-text ng-model="currentItem.desc" data-nsw-max-length='200' required></div>
+					</div>
+					<div nsw-form-row nsw-label="课程详情">
+						<div platform-kindeditor class="materials-keditor" name="materials-textarea" data-height="356" data-k-maximum-words="20000" data-ng-model="currentItem.content" required>
+						</div>
+					</div>
+
+
+					<div nsw-form-row nsw-label="  ">
+						<button type="submit" class="btn btn-warning nsw-btn" ng-disabled="courseDetail.$invalid || courseDetail.$pristine" ng-click="save(true, courseDetail)">
+                            <label class="nsw-btn-save-icon"></label><span class="nsw-btn-text">保&nbsp;存</span></button>
+						<button class="btn btn-default nsw-btn btn-cancel" data-ng-click="goBack()"><label
+                                class="nsw-btn-cancal-icon"></label><span
+                                class="nsw-btn-text nsw-btn-text-black">取消</span></button>
+					</div>
+				</div>
+
+				<div data-nsw-tab="regHistory" class="history">
+					<div>
+						<table ng-table="tableParams" ng-class="!regSearchOptions.totalRows&& 'empty-grid'" class="table table-hover table-condensed table-bordered table-striped">
+							<tr ng-repeat="row in $data" ng-class="{'active':isCurrentItem(row)}">
+								<td data-title="'序号'" class="number">
+									{{(regSearchOptions.pageNum-1)*regSearchOptions.pageSize+$index+1}}
+								</td>
+								<td data-title="'姓名'" class="title name">
+									<img class="img-header" width="50" height="50" nsw-src="{{row.headimgurl}}" alt="{{row.nickname}}" ng-click="showMember(row)">
+									<span class="t-title" ng-click="showMember(row)">{{row.username}}  </span>
+									<!--<span class="t-title" ng-show="row.username" ng-click="edit(row)">({{row.username}})</span>-->
+								</td>
+								<td data-title="'昵称'" class="title nickname">
+									<p>{{row.nickname}}</p>
+								</td>
+								<td data-title="'手机号码'" class="title">
+									<p>{{row.phoneNum}}</p>
+								</td>
+								<td data-title="'在牛商网建站'" class="title radio-col">
+									<i ng-class="row.nswMember?'on':'off'"></i>
+								</td>
+								<td data-title="'单仁资讯学员'" class="title radio-col">
+									<i ng-class="row.srMember?'on':'off'"></i>
+								</td>
+								<td data-title="'注册时间'" class="ngtable-action">
+									<p class="publish-time">{{row.registTime}}</p>
+									<div class="ngtable-handle">
+										<button type="button" class="ngtable-btn" ng-click="showMember(row)">
+                                <span class="table-icon ticon-edit"></span>
+                                <p>查看</p>
+                            </button>
+									</div>
+								</td>
+							</tr>
+						</table>
+
+						<div class="data-footer foot-toolbar clearFix" ng-show="regSearchOptions.totalRows">
+							<div class="pull-right search">
+								<div platform-pagenation search-options="regSearchOptions" nsw-refresh="searchRegData()">
+								</div>
+							</div>
+						</div>
+						<div ng-if="!regSearchOptions.totalRows" class="empty-grid-tip">
+							<span>暂无记录</span>
+						</div>
+					</div>
+					<div class="footer">
+						<button class="btn btn-default nsw-btn btn-cancel" data-ng-click="goBack()"><label
+                            class="nsw-btn-cancal-icon"></label><span
+                            class="nsw-btn-text nsw-btn-text-black">返回</span></button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</form>
+</div>

@@ -1,0 +1,24 @@
+<div class="nsw-tabset">
+	<div class="tab-nav-header" ng-show="tabs.length">
+		<span class="tab-btn tab-prev" ng-click="goPrev()" ng-show="isOverflow" ng-class="isFirst&&'disabled'">&lt;&lt;</span>
+		<div class="tab-nav-container">
+			<ul class="nav nav-tabs">
+				<li class="tab-header" ng-repeat="tab in tabs" ng-class="tabStateClass(tab)"
+				    ng-show="tab.isShow"
+				    ng-if="tab.ifShow"
+				    ng-click="selectTab(tab)">
+					<div class="tab-title">
+                <span style="font-size: 12px; padding-right: 4px;color:red !important;display: inline-block;"
+                      ng-if="tab.required">*</span>
+						<span style="font-size: 12px;">{{tab.title || tab.defaultTitle}}</span>
+						<span ng-if='tab.enableRemove' class='glyphicon glyphicon-remove remove-icon'
+						      ng-click="removeTab(tab)"></span>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<span class="tab-btn tab-next" ng-click="goNext()" ng-show="isOverflow" ng-class="isLast&&'disabled'">&gt;&gt;</span>
+	</div>
+	<div ng-transclude="" class="nsw-tab-viewer"></div>
+
+</div>

@@ -1,0 +1,75 @@
+<div class="course-list">
+    <div class="add-course pull-right">
+        <button type="submit" class="btn btn-warning pull-right"
+                ng-click="create()">
+            <span class="glyphicon glyphicon-plus-sign"></span>
+            <span class="nsw-btn-text">新建课程</span>
+        </button>
+        <div class="search-one pull-right">
+            <input type="text" placeholder="请输入搜索条件" nsw-enter="searchData()" class="pull-left"
+                   ng-model="searchOptions.filter">
+            <a class="reset glyphicon glyphicon-remove" href="javascript:void(0)" ng-click="resetSearchData()"></a>
+            <a class="search" href="javascript:void(0)" ng-click="searchData()"></a>
+        </div>
+    </div>
+
+    <div class="course">
+        <div class="row c-row">
+            <div class="col-xs-12">
+                <table ng-table="tableParams" ng-class="isEmpty() && 'empty-grid'"
+                       class="table table-hover table-condensed table-bordered table-striped">
+                    <tr ng-repeat="row in $data" ng-class="{'active':isCurrentItem(row)}">
+                        <td data-title="'序号'" class="number">
+                            {{(searchOptions.pageNum-1)*searchOptions.pageSize+$index+1}}
+                        </td>
+                        <td data-title="'课程标题'" class="title" style="width:70px">
+                            <img class="img-header" width="50" height="50" nsw-src="{{row.picUrl}}" alt="{{row.title}}" ng-click="edit(row)">
+
+                        </td>
+                        <td data-title="''" class="title">
+                            <p class="t-title"  ng-click="edit(row)">{{row.title}}</p>
+                        </td>
+                        <td data-title="'开课时间'" class="ngtable-action">
+                            <p>{{row.activeStartTime}}</p>
+                        </td>
+                        <td data-title="'讲师'" class="title">
+                            <p>{{row.teacher}}</p>
+                        </td>
+                        <!--<td data-title="'状态'" style="width:120px">
+                            <p data-ng-if ="row.status===1"> 未开始</p>
+                            <p data-ng-if ="row.status===2"> 进行中</p>
+                            <p data-ng-if ="row.status===3"> 已结束</p>
+
+                        </td>-->
+                        <td data-title="'状态'" class="ngtable-action" sortable="'creater'">
+                            <p data-ng-if ="row.status===1"> 未开始</p>
+                            <p data-ng-if ="row.status===2"> 进行中</p>
+                            <p data-ng-if ="row.status===3"> 已结束</p>
+
+                            <div class="ngtable-handle">
+                                <button type="button" class="ngtable-btn" ng-click="edit(row)">
+                                    <span class="table-icon ticon-edit"></span>
+                                    <p>修改</p>
+                                </button>
+                                <button type="button" class="ngtable-btn"
+                                        ng-click="removeItems([row], true)">
+                                    <span class="table-icon ticon-remove"></span>
+                                    <p>删除</p>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div ng-if="isEmpty()" class="empty-grid-tip">
+                    <span>暂无记录</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="data-footer foot-toolbar clearFix">
+        <div class="pull-right search">
+            <div platform-pagenation search-options="searchOptions" nsw-refresh="searchData()">
+            </div>
+        </div>
+    </div>
+</div>

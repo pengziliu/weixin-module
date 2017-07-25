@@ -1,0 +1,12 @@
+<div class="form-row clearFix">
+	<div class="form-row-label" data-ng-if="hasLabel" style="position: relative;">
+		<span ng-if="input.isRequired" class="start">*</span>
+		<label ng-if="!label2" class="pull-left" data-ng-bind="label"></label>
+		<label ng-if="label2" class="pull-left" data-ng-bind="label" style="margin: 0px;margin-top: -8px"></label>
+		<label ng-if="label2" class="pull-left" data-ng-bind="label2" style="margin: 0px;clear: left;margin-top: -3px"></label>
+	</div>
+	<div class="form-row-content" ng-class="{true:'form-row-w100'}[newBlankEditor]">
+		<div ng-transclude style="position:relative;"></div>
+		<div class="validate-tip" ng-if="inputVisible && hasValidate" nsw-form-validate-tip data-settings="input"></div>
+	</div>
+</div>

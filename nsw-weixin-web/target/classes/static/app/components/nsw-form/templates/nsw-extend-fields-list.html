@@ -1,0 +1,22 @@
+<div class="product">
+	<form class="form-horizontal form-validation" name="formSpeed" novalidate>
+		<div class="modal-header">
+			<h4 class="modal-title">扩展字段</h4>
+			<a class="diaremove" ng-click="$close()"></a>
+		</div>
+		<div class="modal-body" nsw-form="">
+
+			<div  data-nsw-extend-fields data-ng-model="modalOptions.fieldsList" data-delete-item-arr="modalOptions.deleteArr"></div>
+
+			<div class="modal-footer text-align-left">
+				<button type="submit" class="btn btn-warning btn-color modal-btn-default"
+						ng-disabled="formSpeed.$invalid || formSpeed.$pristine"
+						ng-click="save()">
+					<!--<label class="checkright"></label>--><span class="btntext">保&nbsp;存</span></button>
+				<button class="btn btn-default btn-color btn-cancel modal-btn-default" ng-click="cancel()">
+					<!--<label class="checkcancel"></label>-->
+					<span class="btntext black">取&nbsp;消</span></button>
+			</div>
+		</div>
+	</form>
+</div>

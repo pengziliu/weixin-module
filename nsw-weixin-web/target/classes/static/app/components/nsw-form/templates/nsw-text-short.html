@@ -1,0 +1,6 @@
+<div class="short-title fl">
+	<div class="translcude-container"  data-ng-if="!hasShortTitle"  ng-transclude style="position:relative;"></div>
+	<div data-ng-if="hasShortTitle" class="btn-left" nsw-form-row nsw-label="{{shortTitle}}">
+		<div nsw-text data-ng-change="setViewValue()" data-nsw-max-length="{{maxCount}}" ng-model="options.shortModel" size="{{options.size}}" autocomplete="off"></div>
+	</div>
+</div>

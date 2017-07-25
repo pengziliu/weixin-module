@@ -1,0 +1,19 @@
+@import "course-reg-list";
+@import "course-reg-detail";
+
+
+.radio-col{
+  .on, .off{
+    display: block;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    border: 1px solid black;
+  }
+  .on{
+    background-color:$promise-color ;
+  }
+  .off{
+    background-color:white ;
+  }
+}

@@ -1,0 +1,26 @@
+.course-reg-detail {
+  .form-content {
+    line-height: 28px;
+  }
+
+  .base-info {
+    .footer {
+      padding: 15px 42px;
+    }
+  }
+
+  .history {
+    .footer {
+      padding: 20px 0px;
+    }
+  }
+
+  .title{
+    &>img.img-header{
+      width: auto;
+      height: 50px;
+      border-radius: 0;
+      cursor: pointer;
+    }
+  }
+}

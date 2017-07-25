@@ -1,0 +1,7 @@
+<div class="nsw-text text-suffix">
+    <input class="form-control {{size}}" ng-model="model" ng-change="valueChanged()"/>
+    <span class="nsw-icon icon-clear" ng-click="clearValue()"></span>
+	<span class="nsw-text-suffix">.html</span>
+    <!--<span ng-if="maxCount"  class="count">{{inputCount}}/{{maxCount}}字符</span>-->
+    <span ng-if="maxCount&&isOverCount"  class="count count2"><span class="err">{{inputCount}}/</span>{{maxCount}}</span>
+</div>

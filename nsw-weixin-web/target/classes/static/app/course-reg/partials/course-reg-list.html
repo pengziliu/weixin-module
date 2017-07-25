@@ -1,0 +1,64 @@
+<div class="course-reg-list">
+    <div class="add-course pull-right">
+
+        <div class="search-one pull-right">
+            <input type="text" placeholder="请输入搜索条件" nsw-enter="searchData()" class="pull-left"
+                   ng-model="searchOptions.filter">
+            <a class="reset glyphicon glyphicon-remove" href="javascript:void(0)" ng-click="resetSearchData()"></a>
+            <a class="search" href="javascript:void(0)" ng-click="searchData()"></a>
+        </div>
+    </div>
+    <div class="row c-row">
+        <div class="col-xs-12">
+            <table ng-table="tableParams" ng-class="isEmpty()&& 'empty-grid'"
+                   class="table table-hover table-condensed table-bordered table-striped">
+                <tr ng-repeat="row in $data" ng-class="{'active':isCurrentItem(row)}">
+                    <td data-title="'序号'" class="number">
+                        {{(searchOptions.pageNum-1)*searchOptions.pageSize+$index+1}}
+                    </td>
+                    <td data-title="'姓名'" class="title name"  >
+                        <img class="img-header" width="50" height="50" nsw-src="{{row.headimgurl}}"
+                             alt="{{row.nickname}}" ng-click="edit(row)">
+                        <span class="t-title" ng-click="edit(row)">{{row.username}}  </span>
+                        <!--<span class="t-title" ng-show="row.username" ng-click="edit(row)">({{row.username}})</span>-->
+                    </td>
+                    <td data-title="'昵称'" class="title">
+                        <p>{{row.nickname}}</p>
+                    </td>
+                    <td data-title="'手机号码'" class="title">
+                        <p>{{row.phoneNum}}</p>
+                    </td>
+
+                    <td data-title="'在牛商网建站'" class="title radio-col">
+                        <i ng-class="row.nswMember?'on':'off'"></i>
+                        <!--<p>{{row.nswMember?'是':'否'}}</p>-->
+                    </td>
+                    <td data-title="'单仁资讯学员'" class="title radio-col">
+                        <i ng-class="row.srMember?'on':'off'"></i>
+                        <!--<p>{{row.srMember?'是':'否'}}</p>-->
+                    </td>
+
+                    <td data-title="'注册时间'" class="ngtable-action">
+                        <p class="publish-time">{{row.registTime}}</p>
+                        <div class="ngtable-handle">
+                            <button type="button" class="ngtable-btn" ng-click="edit(row)">
+                                <span class="table-icon ticon-edit"></span>
+                                <p>查看</p>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div ng-if="isEmpty()" class="empty-grid-tip">
+                <span>暂无记录</span>
+            </div>
+        </div>
+    </div>
+    <div class="data-footer foot-toolbar clearFix">
+        <div class="pull-right search">
+            <div platform-pagenation search-options="searchOptions" nsw-refresh="searchData()">
+            </div>
+        </div>
+    </div>
+
+</div>

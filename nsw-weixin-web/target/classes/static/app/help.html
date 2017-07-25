@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="renderer" content="webkit">
+	<title>微信管家</title>
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<!-- inject:html -->
+	<!-- any *.html files among your sources will go here as: <link rel="import" href="FILE"> -->
+	<!-- endinject -->
+
+	<!-- inject:program css -->
+	<link rel="stylesheet"  href="../plugins/jquery/css/jquery-ui.css">
+	<link rel="stylesheet"  href="../plugins/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet"  href="../plugins/bootstrap/css/exp-bootstrap.css">
+	<link rel="stylesheet"  href="../app/main/content/css/main.css">
+	<link rel="stylesheet"  href="../app/components/content/css/platform.css">
+	<!-- endinject -->
+	<!-- inject:pluginjs -->
+	<script type="text/javascript" charset="utf-8" src="../target/frames.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../target/tools.min.js"></script>
+	<!-- endinject -->
+</head>
+<body ng-app="app">
+<div  ng-controller="wechatCtrl">
+	<div class="container-fluid c-header">
+		<div class="container-fluid c-header">
+			<div class="container">
+				<a href="index.html" class="c-logo"></a>
+				<div class="c-manager">
+					<div>
+						<span class="wechat-icon" >微信管家 </span>
+						<a href="{{dataList.cmsProjectIndex}}" >切换</a>
+					</div>
+					<div>
+						<a class="c-user-name" href="javascript:void(0)"><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;&nbsp;<span data-ng-bind="dataList.name"></span>&nbsp;&nbsp;欢迎你！</a>
+						<a target="_blank" href="{{dataList.formal_domain}}" >网站首页</a>&nbsp;
+						<span >｜&nbsp;</span>
+						<a href="help.html" >帮助中心</a>
+						<span >&nbsp;｜</span>
+						<a data-ng-if = "dataList.displayLogoutBtn"   href="index.html" >返回</a>
+						<span >&nbsp;｜</span>
+						<a data-ng-if = "dataList.displayLogoutBtn"  href="javascript:void(0)" ng-click="exit('../j_spring_cas_security_logout')" role="button" >退出</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container c-container">
+		<div class="help-word">
+				<h2><a name="/_Toc337729707"></a><a name="/_Toc464043391">微信管家使用指南（目录）</a></h2>
+
+				<h2><a name="/_Toc464043392">目&nbsp;&nbsp;&nbsp; </a>录</h2>
+
+				<p>&nbsp;</p>
+
+				<p><a href="#/_Toc464043391">微信管家使用指南（目录）... 1</a></p>
+
+				<p><a href="#/_Toc464043392">目&nbsp;&nbsp;&nbsp; 录... 1</a></p>
+
+				<p><a href="#/_Toc464043393">1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 绑定公众号... 3</a></p>
+
+				<p><a href="#/_Toc464043394">1.1授权绑定... 3</a></p>
+
+				<p><a href="#/_Toc464043395">2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 自动回复... 6</a></p>
+
+				<p><a href="#/_Toc464043396">2.1关注时回复... 6</a></p>
+
+				<p><a href="#/_Toc464043397">2.2关键词回复... 7</a></p>
+
+				<p><a href="#/_Toc464043398">2.3无匹配回复... 8</a></p>
+
+				<p><a href="#/_Toc464043399">3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 群发消息... 9</a></p>
+
+				<p><a href="#/_Toc464043400">3.1新建群发消息... 10</a></p>
+
+				<p><a href="#/_Toc464043401">3.2群发消息管理... 12</a></p>
+
+				<p><a href="#/_Toc464043402">4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 粉丝管理... 14</a></p>
+
+				<p><a href="#/_Toc464043403">4.1新建标签... 14</a></p>
+
+				<p><a href="#/_Toc464043404">4.2打标签... 15</a></p>
+
+				<p><a href="#/_Toc464043405">4.3粉丝筛选查询... 16</a></p>
+
+				<p><a href="#/_Toc464043406">5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 实时消息... 17</a></p>
+
+				<p><a href="#/_Toc464043407">5.1实时消息查询... 17</a></p>
+
+				<p><a href="#/_Toc464043408">5.2实时消息回复... 18</a></p>
+
+				<p><a href="#/_Toc464043409">6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 自定义菜单... 19</a></p>
+
+				<p><a href="#/_Toc464043410">6.1菜单管理... 19</a></p>
+
+				<p><a href="#/_Toc464043411">6.2一级菜单... 20</a></p>
+
+				<p><a href="#/_Toc464043412">6.3二级菜单... 25</a></p>
+
+				<p><a href="#/_Toc464043413">7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 素材管理... 26</a></p>
+
+				<p><a href="#/_Toc464043414">7.1图文素材管理... 27</a></p>
+
+				<p><a href="#/_Toc464043415">7.1.1&nbsp;新建单图文素材... 27</a></p>
+
+				<p><a href="#/_Toc464043416">7.1.2新建多图文素材... 29</a></p>
+
+				<p><a href="#/_Toc464043417">7.1.3删除图文素材... 29</a></p>
+
+				<p><a href="#/_Toc464043418">7.2图片素材管理... 30</a></p>
+
+				<p><a href="#/_Toc464043419">8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 参数二维码（本功能只在认证服务号上开通）... 34</a></p>
+
+				<p><a href="#/_Toc464043420">8.1新建二维码... 34</a></p>
+
+				<p><a href="#/_Toc464043421">8.2二维码管理... 36</a></p>
+
+				<p><a href="#/_Toc464043422">8.3二维码统计... 38</a></p>
+
+				<p><a href="#/_Toc464043423">9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 附件... 40</a></p>
+
+				<p><a href="#/_Toc464043424">9.1关于功能菜单减少的说明... 40</a></p>
+
+				<p><a href="#/_Toc464043425">9.2授权绑定失败... 41</a></p>
+
+				<p><a name="_1.绑定公众号"></a></p>
+
+				<p>&nbsp;</p>
+
+				<h1><a name="/_Toc464043393">1&nbsp;&nbsp;&nbsp; 绑定公众号</a></h1>
+
+				<h2><a name="/_Toc464043394"></a><a name="/_Toc337729709">1.1</a>授权绑定</h2>
+
+				<p>点击&ldquo; <strong>+</strong> &rdquo;，进行微信公众号授权绑定。</p>
+
+				<p><img src="help/image/image001.jpg" style="height:292px; width:553px" /></p>
+
+				<p><img src="help/image/image002.jpg" style="height:353px; width:554px" /></p>
+
+				<p>点击&ldquo;微信公众号授权&rdquo;后出现以下界面：</p>
+
+				<p><img src="help/image/image003.jpg" style="height:320px; width:518px" /></p>
+
+				<p>点击&ldquo;授权绑定&rdquo;按钮后，进入以下界面。</p>
+
+				<p><img src="help/image/image004.jpg" style="height:364px; width:413px" /></p>
+
+				<p>使用微信公众号绑定的个人微信扫描二维码进行授权。</p>
+
+				<p><img src="help/image/image005.jpg" style="height:346px; width:280px" /></p>
+
+				<p>使用绑定个人微信号扫描二维码后，选择功能权限确认。</p>
+
+				<p><img src="help/image/image006.jpg" style="height:535px; width:301px" /></p>
+
+				<p>点击&ldquo;授权&rdquo;成功后，跳转到以下界面。</p>
+
+				<p><img src="help/image/image007.jpg" style="height:294px; width:553px" /></p>
+
+				<p>点击&ldquo;确定&rdquo;按钮，跳转到以下界面，完成微信公众号授权绑定。</p>
+
+				<p><img src="help/image/image008.jpg" style="height:309px; width:554px" /></p>
+
+				<p>&nbsp;</p>
+
+				<h1><a name="/_Toc464043395">2&nbsp;&nbsp;&nbsp; 自动回复</a></h1>
+
+				<h2><a name="/_Toc464043396"></a><a name="/_Toc337729714">2.1</a>关注时回复</h2>
+
+				<p><a name="/_Toc337729715"><strong>1.</strong></a><strong>关注时回复设置方法</strong></p>
+
+				<p>点击一级导航&ldquo;自动回复-关注时回复&rdquo;，进入相应页面。填写回复内容，完成关注时的回复设置。</p>
+
+				<p><img src="help/image/image009.jpg" style="height:313px; width:554px" /></p>
+
+				<p>设置被关注时回复后，粉丝在关注您的公众号时，会自动发送您设置的文字/图片给粉丝，设置后可根据需要&ldquo;编辑&rdquo;或&ldquo;删除&rdquo;内容。</p>
+
+				<p><strong>2.</strong><strong>关注时回复的规则</strong></p>
+
+				<p>l&nbsp; 文本回复：输入框只可以输入1-600个字（一个字母也算是一个字）；</p>
+
+				<p>l&nbsp; 图片回复：只可选取一张图片作为回复。</p>
+
+				<h2><a name="/_Toc464043397">2.2</a>关键词回复</h2>
+
+				<p><a name="/_Toc337729716"><strong>1.</strong></a><strong>关键词回复设置方法</strong></p>
+
+				<p>点击一级导航&ldquo;自动回复-关键词回复&rdquo;，进入相应页面。填写规则名、关键词，选择匹配方式、回复类型，完成关键词回复设置。</p>
+
+				<p><img src="help/image/image010.jpg" style="height:347px; width:553px" /></p>
+
+				<p><strong>2.</strong><strong>关键词回复的规则</strong></p>
+
+				<p>l&nbsp; 规则名：规则上限为200条规则（每条规则名，最多可设置60个汉字）；</p>
+
+				<p>l&nbsp; 关键词：每条规则内最多设置10条关键词（每条关键词，最多可设置30个汉字），若设置了相同的关键词，但回复内容不同，系统会随机回复；</p>
+
+				<p>l&nbsp; 匹配方式：只能选择一种（即单选），模糊匹配或者精确匹配。粉丝发送的消息内如果含有设置的关键词，这时选择（精确匹配或者模糊匹配）：（1）如果设置了精确匹配则发送的内容与设置的关键词必须完全一样，才会触发关键字回复，比如：设置&ldquo;123&rdquo;，仅回复&ldquo;123&rdquo;才会触发关键字回复；（2）如果设置了模糊匹配则只需要发送的内容包含设置的关键字，就会触发关键字回复给对方。比如：设置&ldquo;123&rdquo;，回复&ldquo;1234&rdquo;会触发，但回复不完整的关键字&ldquo;12&rdquo;则不会触发关键字回复）；</p>
+
+				<p>l&nbsp; 回复类型：只能选择一种，文本回复、图片回复或者图文回复，每条规则内最多1条回复内容。</p>
+
+				<h2><a name="/_Toc464043398">2.3</a>无匹配回复</h2>
+
+				<p><strong>1.</strong><strong>无匹配回复设置方法</strong></p>
+
+				<p>点击一级导航&ldquo;自动回复-无匹配回复&rdquo;，进入相应页面。填写回复内容，完成回复设置。</p>
+
+				<p><img src="help/image/image011.jpg" style="height:293px; width:554px" /></p>
+
+				<p>当用户发送的内容无任何关键词可匹配时，则属于无匹配回复。设置后可根据需要&ldquo;编辑&rdquo;或&ldquo;删除&rdquo;内容。</p>
+
+				<p><strong>2.</strong><strong>无匹配回复的规则</strong></p>
+
+				<p>l&nbsp; 文本回复：输入框只可以输入1-600个字（一个字母也算是一个字）；</p>
+
+				<p>l&nbsp; 图片回复：只可选取一张图片作为回复。</p>
+
+				<h1><a name="/_Toc464043399">3&nbsp;&nbsp;&nbsp; 群发消息</a></h1>
+
+				<p>点击一级导航&ldquo;群发消息&rdquo;，进入相应页面。</p>
+
+				<p><img src="help/image/image012.jpg" style="height:322px; width:554px" /></p>
+
+				<h2><a name="/_Toc464043400"></a><a name="/_Toc337729719">3.1</a>新建群发消息</h2>
+
+				<p>进入&ldquo;群发消息&rdquo;页面，默认在&ldquo;新建群发消息&rdquo;页面。</p>
+
+				<p><strong>1.</strong><strong>如何群发？</strong></p>
+
+				<p>l&nbsp; 选择群发对象：支持&ldquo;全部用户&rdquo;或&ldquo;按分组选择&rdquo;；</p>
+
+				<p><img src="help/image/image013.jpg" style="height:323px; width:554px" /></p>
+
+				<ul>
+					<li>定时群发：可自定义设置群发消息的时间</li>
+				</ul>
+
+				<p><img src="help/image/image014.jpg" style="height:331px; width:553px" /></p>
+
+				<p>l&nbsp; 选择群发消息类型：可选择的类型如下图，支持文本、图片、图文消息。</p>
+
+				<p><img src="help/image/image015.jpg" style="height:327px; width:554px" /></p>
+
+				<p>l&nbsp; 编辑群发内容</p>
+
+				<p><strong>文本</strong>：字数上限为600个字符、或600个汉字；</p>
+
+				<p><strong>图片</strong>：每次只能群发一张图片，可从素材库选择或本地上传图片。本地上传图片并群发后，该图片将被保存到素材库中，如下图；</p>
+
+				<p><img src="help/image/image016.jpg" style="height:322px; width:554px" /></p>
+
+				<p><strong>图文</strong>：每次只能群发一个单图文或者多图文消息，同样可以从素材库选择或新建图文消息。新建图文消息的话，可选择单图文消息或者多图文消息。新建的图文素材群发后，将被保存到素材库中，如下图：</p>
+
+				<p><img src="help/image/image017.jpg" style="height:316px; width:553px" /></p>
+
+				<p><strong>2.</strong><strong>群发消息的人数上限？</strong></p>
+
+				<p>微信公众平台群发消息的人数没有限制，只能群发给粉丝，不支持群发给非订阅用户。</p>
+
+				<p><strong>3.</strong><strong>群发消息的规则/</strong><strong>限制？</strong></p>
+
+				<p>订阅号（认证用户、非认证用户）在1天只能群发1条消息（每天0点更新，次数不会累加）；</p>
+
+				<p>服务号（认证用户、非认证用户），1个月（按自然月）内可发送4条群发消息（每月月底0点更新，次数不会累加）；</p>
+
+				<h2><a name="/_Toc464043401"></a><a name="/_Toc337729720">3.2</a>群发消息管理</h2>
+
+				<p>在&ldquo;群发消息&rdquo;菜单下，点击&ldquo;已发送列表&rdquo;，切换到群发消息管理的页面。</p>
+
+				<p>在群发消息管理中，对于定时群发的消息：可取消发送、删除消息，查看群发消息（类型，时间，发送成功/失败人数）；对于普通消息的群发：可删除群发消息，查看群发消息（类型，时间，发送成功/失败人数）</p>
+
+				<p><strong>1.</strong><strong>群发消息的删除 </strong></p>
+
+				<p>通过查看已发送列表（包括发送成功、发送失败的消息），点击&ldquo;删除&rdquo;按钮，可删除群发消息，如下图：</p>
+
+				<p><img src="help/image/image018.jpg" style="height:297px; width:554px" /></p>
+
+				<p>将删除图文消息详情页（多图文消息删除所有详情页），但粉丝仍能在会话页面查看预览内容；</p>
+
+				<p><img src="help/image/image019.jpg" style="height:295px; width:553px" /></p>
+
+				<p>将删除公众号的&ldquo;已发送列表&rdquo;中的相关记录；</p>
+
+				<p>图文消息删除后，群发权限不会恢复；图文消息删除5分钟后全部生效。</p>
+
+				<p>温馨提示：目前在微信公众平台中只能删除已发送成功的消息；正在群发中的消息，暂不支持撤回或删除；定时群发的消息处于等待中的可取消发送，也可以删除消息</p>
+
+				<p><strong>2.</strong><strong>查看群发消息</strong></p>
+
+				<p>可查看群发消息的类型（文字消息、图片消息、图文消息），发送时间，对于发送成功的消息，将鼠标移至&ldquo;发送成功&rdquo;，还可查看群发成功/失败的人数，如下图：</p>
+
+				<p><img alt="Description: C:\Users\wangw\Documents\Tencent Files\30975090\Image\C2C\$I40EPNH1XT@Q6B(~BLLJ@J.png" src="help/image/image020.jpg" style="height:196px; width:599px" /></p>
+
+				<p>&nbsp;</p>
+
+				<h1><a name="/_Toc464043402">4&nbsp;&nbsp;&nbsp; 粉丝管理</a></h1>
+
+				<p>通过本功能可以快速管理公众号后台的粉丝，建立分组、查看属性等粉丝个性标签，以便于您可以精准地对粉丝进行管理互动。</p>
+
+				<p>点击左边菜单栏的&ldquo;粉丝管理&rdquo;，进入以下界面。</p>
+
+				<p><img src="help/image/image021.jpg" style="height:331px; width:552px" /></p>
+
+				<h2><a name="/_Toc464043403"></a><a name="/_Toc337729723"></a><a name="/_Toc521466914">4.1</a>新建标签</h2>
+
+				<p>点击界面右上角&ldquo;新建标签&rdquo;按钮，弹出以下窗口。</p>
+
+				<p><img src="help/image/image022.jpg" style="height:318px; width:553px" /></p>
+
+				<p>&nbsp;</p>
+
+				<p>在弹出窗口中，标签名称中输入相关文字，例如举行某次抽奖活动，您可以将标签命名为&ldquo;抽奖活动粉丝&rdquo;，将本次抽奖活动粉丝进行标签归类，输入标签名称文字后，点击&ldquo;确认&rdquo;按钮。</p>
+
+				<p><img src="help/image/image023.jpg" style="height:294px; width:553px" /></p>
+
+				<h2><a name="/_Toc464043404"></a><a name="/_Toc337729724">4.2</a>打标签</h2>
+
+				<p>在标签建立后，您可以对公众号粉丝进行打标签，以后就可以轻松通过标签进行粉丝管理。</p>
+
+				<p>点击粉丝名称右边的三角形按钮，弹出标签名称窗口，您可以选择对应的标签名称对粉丝进行归类，每个粉丝最多能对应3个标签类别，超过三个系统将提示您&ldquo;<strong>最多只能选择3个标签</strong>&rdquo;。</p>
+
+				<p><img src="help/image/image024.jpg" style="height:330px; width:553px" /></p>
+
+				<p>&nbsp;</p>
+
+				<p>系统还提供批量打标签功能。</p>
+
+				<p>点击用户名称下面的全选按钮，在选中的状态下，点击左下角的&ldquo;打标签&rdquo;按钮，在弹出窗口，选择对应的标签名称，选中之后，点击确认按钮。</p>
+
+				<p><img src="help/image/image025.jpg" style="height:310px; width:553px" /></p>
+
+				<p>&nbsp;</p>
+
+				<h2><a name="/_Toc464043405"></a><a name="/_Toc337729728">4.3</a>粉丝筛选查询</h2>
+
+				<p>点击系统界面右边的标签名称，通过标签进行粉丝筛选查询。</p>
+
+				<p><img src="help/image/image026.jpg" style="height:316px; width:553px" /></p>
+
+				<h1><a name="/_Toc464043406">5&nbsp;&nbsp;&nbsp; 实时消息</a></h1>
+
+				<p>点击后台左边菜单栏的&ldquo;实时消息&rdquo;按钮，进入以下界面。</p>
+
+				<p><img src="help/image/image027.jpg" style="height:333px; width:553px" /></p>
+
+				<h2><a name="/_Toc464043407">5.1</a>实时消息查询</h2>
+
+				<p>目前对于系统的实时消息查询，可以进行全部、今天、昨天、前天、最近五天这5个时间维度的查询。</p>
+
+				<p><img src="help/image/image028.jpg" style="height:333px; width:554px" /></p>
+
+				<h2><a name="/_Toc464043408">5.2</a>实时消息回复</h2>
+
+				<p>5.2.1实时消息&mdash;快速回复</p>
+
+				<p>点击粉丝留言的右边箭头按钮，弹出以下窗口界面。</p>
+
+				<p><img src="help/image/image029.jpg" style="height:327px; width:553px" /></p>
+
+				<p>对于粉丝实时消息回复，允许文本回复，同时可以添加（系统表情、网址超级链接）。最大输入内容为600个汉字。</p>
+
+				<p>5.2.2 实时消息&mdash;多种类型回复</p>
+
+				<p>点击用户头像，弹出如下窗口</p>
+
+				<p><img src="help/image/image030.jpg" style="height:260px; width:554px" /></p>
+
+				<p>在快速回复方式（文本回复）不能满足回复形式的情况下，可以点击用户头像，出现（文本、图片、图文消息三种回复类型），您可以任意选择其中一种进行回复</p>
+
+				<h1><a name="/_Toc464043409">6&nbsp;&nbsp;&nbsp; 自定义菜单</a></h1>
+
+				<p>已认证的订阅号、未认证的服务号以及已认证的服务号可以直接开启自定义菜单；而未认证的订阅号需要先申请微信认证，才可以开启自定义菜单。开启自定义菜单之后，将在24小时内对所有粉丝生效。</p>
+
+				<p>编辑中的菜单不会马上被用户看到，点击发布后，会在24小时后在手机端同步显示，粉丝不会收到更新提示，若多次编辑，以最后一次保存为准。</p>
+
+				<h2><a name="/_Toc464043410">6.1</a>菜单管理</h2>
+
+				<p>点击一级导航&ldquo;自定义菜单&rdquo;，进入相应页面。</p>
+
+				<p>l&nbsp; 开启自定义菜单：开启自定义菜单之后，将在24小时内对所有用户生效。</p>
+
+				<p>l&nbsp; 禁用自定义菜单：系统默认为禁用状态。禁用后，在24小时内对所有用户生效。</p>
+
+				<p>自定义菜单分为两部分：菜单管理（左边）及菜单内容管理（右边）</p>
+
+				<p><img src="help/image/image031.jpg" style="height:301px; width:554px" /></p>
+
+				<p>&nbsp;</p>
+
+				<h2><a name="/_Toc464043411">6.2</a>一级菜单</h2>
+
+				<p><strong>1.</strong><strong>添加一级菜单</strong></p>
+
+				<p>点击&ldquo;+&rdquo;可添加一级菜单，最多可添加3个一级菜单，一级菜单命名最多4个汉字或8个字符。</p>
+
+				<p><img src="help/image/image032.jpg" style="height:324px; width:555px" /></p>
+
+				<p><strong>2.</strong><strong>编辑一级菜单</strong></p>
+
+				<p>l&nbsp; 排序：鼠标选中任意一级菜单左右拖动，可进行一级菜单之间位置的互换，互换后该一级菜单下的二级菜单跟着一级菜单移动。</p>
+
+				<p>l&nbsp; 删除：点击一级菜单，在右边可删除该菜单。删除后，该一级菜单下的内容将都被删除。</p>
+
+				<p>l&nbsp; 编辑名称（重命名）：点击一级菜单，右边可编辑名称。</p>
+
+				<p><img src="help/image/image033.jpg" style="height:336px; width:554px" /></p>
+
+				<p><strong>3.</strong><strong>设定一级菜单内容</strong>（只有在一级菜单下无二级菜单时，才可设定一级菜单内容，当一级菜单包含二级菜单时则 只能编辑一级菜单的名称，无法编辑一级菜单内容）</p>
+
+				<p>设置的内容包含：发送消息或跳转到网页。</p>
+
+				<p><img src="help/image/image034.jpg" style="height:327px; width:554px" /></p>
+
+				<p>l&nbsp; 发送消息：可发送信息类型包括图片、图文消息和触发关键词。</p>
+
+				<p><img src="help/image/image035.jpg" style="height:327px; width:554px" /></p>
+
+				<p>l&nbsp; <strong>图片</strong>：每次只能群发一张图片，可从素材库选择或本地上传图片。本地上传图片并群发后，该图片将被保存到素材库中；</p>
+
+				<p><img src="help/image/image036.jpg" style="height:296px; width:554px" /></p>
+
+				<p>l&nbsp; <strong>图文</strong>：每次只能群发一个单图文或者多图文消息，同样可以从素材库选择或新建图文消息。新建图文消息的话，可选择单图文消息或者多图文消息。新建的图文素材群发后，将被保存到素材库中；</p>
+
+				<p><img src="help/image/image037.jpg" style="height:300px; width:554px" /></p>
+
+				<p>l&nbsp; 触发关键词。</p>
+
+				<p><img src="help/image/image038.jpg" style="height:322px; width:554px" /></p>
+
+				<p>点击&ldquo;选择关键词&rdquo;按钮，弹出窗口</p>
+
+				<p><img src="help/image/image039.jpg" style="height:316px; width:553px" /></p>
+
+				<p>选取关键词，点击确认按钮，返回到以下页面</p>
+
+				<p><img src="help/image/image040.jpg" style="height:319px; width:553px" /></p>
+
+				<p>l&nbsp; 跳转到网页：输入URL链接，用户点击该菜单时，直接跳转到对应网页。</p>
+
+				<p><img src="help/image/image041.jpg" style="height:299px; width:553px" /></p>
+
+				<p>&nbsp;</p>
+
+				<h2><a name="/_Toc464043412">6.3</a>二级菜单</h2>
+
+				<p><strong>1.</strong><strong>添加二级菜单</strong></p>
+
+				<p>在一级菜单下点击&ldquo;+&rdquo;可添加二级菜单，每个一级菜单下最多可添加5个二级菜单，二级菜单命名最多8个汉字或16个字符。</p>
+
+				<p><img src="help/image/image042.jpg" style="height:307px; width:554px" /></p>
+
+				<p><strong>2.</strong><strong>编辑二级菜单</strong></p>
+
+				<p>l&nbsp; 排序：鼠标选中任一二级菜单上下拖动，可进行二级菜单之间位置的互换。同一个一级菜单下的二级菜单互换同一个一级菜单下的二级菜单；一级菜单与二级菜单不可互换；不是同一个一级菜单下的二级菜单不可互换。</p>
+
+				<p>l&nbsp; 删除：点击二级菜单，在右边可删除该菜单。删除后，该菜单下的内容将都被删除。</p>
+
+				<p>l&nbsp; 编辑名称（重命名）：点击二级菜单，右边可编辑名称。</p>
+
+				<p><img src="help/image/image043.jpg" style="height:306px; width:553px" /></p>
+
+				<p><strong>3.</strong><strong>设定二级菜单内容</strong></p>
+
+				<p>可对二级菜单进行发送消息、跳转到网页设置，与设定一级菜单内容一致。</p>
+
+				<h1><a name="/_Toc464043413">7&nbsp;&nbsp;&nbsp; 素材管理</a></h1>
+
+				<p>点击一级导航&ldquo;素材管理&rdquo;，进入相应页面。默认进入&ldquo;素材管理-图文素材&rdquo;页面。</p>
+
+				<p><img src="help/image/image044.jpg" style="height:317px; width:554px" /></p>
+
+				<p>鼠标移动至&ldquo;新建图文&rdquo;，可选择新建单/多图文素材。</p>
+
+				<p><img src="help/image/image045.jpg" style="height:227px; width:554px" /></p>
+
+				<p>&nbsp;</p>
+
+				<h2><a name="/_Toc464043414">7.1</a>图文素材管理</h2>
+
+				<h3><a name="/_Toc464043415"></a><a name="/_Toc261946285">7.1.1</a>&nbsp;新建单图文素材</h3>
+
+				<p>点击&ldquo;新建单图文&rdquo;，进行单图文消息编辑。点击右上角&ldquo;输入内容&rdquo;，可进行&ldquo;选取内容&rdquo;和&ldquo;输入内容&rdquo;的切换。默认进入&ldquo;选取内容&rdquo;的编辑页面（建议采用选取内容的方式进行编辑）。</p>
+
+				<p><strong>1.</strong><strong>选取内容</strong></p>
+
+				<p>下拉进行频道和分类列表的选择，输入标题名称进行搜索，若不输入标题名称直接进行搜索，显示该分类下的全部文章。</p>
+
+				<p><img src="help/image/image046.jpg" style="height:324px; width:554px" /></p>
+
+				<p>选择文章后，可对标题、封面图片、摘要、正文、原文链接地址进行编辑、修改。</p>
+
+				<p><img src="help/image/image047.jpg" style="height:451px; width:554px" /></p>
+
+				<p>l&nbsp; 标题（必填）：长度为1-64个字（一个字母也算是一个字，不支持换行及设置字体大小）；</p>
+
+				<p>l&nbsp; 封面图片（必填）：点击可在素材库中选取，或进行本地上传；最大上传容量2M，允许上传的格式：bmp、png、jpeg、jpg、gif。大图片建议尺寸：900*500像素；</p>
+
+				<p>l&nbsp; 摘要（选填）：最多可输入120个字（一个字母也算是一个字），填写摘要后，在粉丝收到的图文消息封面会显示摘要内容；若未填写，在粉丝收到的图文消息封面则展示部分正文内容；</p>
+
+				<p>l&nbsp; 正文（必填）：最多可输入20000个字（一个字母也算是一个字）；</p>
+
+				<p>l&nbsp; 原文链接（选填）：填写后，图文消息下发给粉丝后，粉丝通过手机微信收到消息后，在正文中点击&ldquo;阅读原文&rdquo;，跳转到设置的网页链接。</p>
+
+				<p><strong>2.</strong><strong>输入内容</strong></p>
+
+				<p>对标题、封面图片、摘要、正文、原文链接地址的编辑与修改与&ldquo;选取内容&rdquo;一致。</p>
+
+				<p><strong>3.</strong><strong>素材的保存规则</strong></p>
+
+				<p>必须填写标题与封面图片，才可对素材进行保存。</p>
+
+				<p>&nbsp;</p>
+
+				<h3><a name="/_Toc464043416"></a><a name="/_Toc261946286">7.1.2</a>新建多图文素材</h3>
+
+				<p>点击&ldquo;新建多图文&rdquo;，进行多图文消息编辑，与单图文消息的编辑一致。</p>
+
+				<p><strong>1.</strong><strong>多图文素材内容的新增</strong></p>
+
+				<p>点击左边的&ldquo;+&rdquo;，可增加图文消息的内容，最多可添加8个图文（1个大图文+7个小图文）。</p>
+
+				<p><img src="help/image/image048.jpg" style="height:321px; width:554px" /></p>
+
+				<p>需要注意的是，除第一个图文消息封面图片为大图，大图片建议尺寸：900*500像素。其他图文消息的封面图片显示为小图片，建议尺寸：200*200像素。</p>
+
+				<p><strong>2.</strong><strong>多图文素材的编辑</strong></p>
+
+				<p>鼠标移动到列表时，显示&ldquo;编辑&rdquo;和&ldquo;删除&rdquo;按钮，可对图文消息进行编辑、删除，鼠标选中上下拖动可以进行排序。</p>
+
+				<p>&nbsp;</p>
+
+				<h3><a name="/_Toc464043417"></a><a name="/_Toc261946287">7.1.3</a>删除图文素材</h3>
+
+				<p>在图文素材管理页面，将鼠标移到图文素材时，右上角显示&ldquo;&times;&rdquo;，点击删除图标，可删除图文素材。</p>
+
+				<p><img src="help/image/image049.jpg" style="height:284px; width:553px" /></p>
+
+				<p>删除图文素材后，如果是群发消息的素材，则不影响群发后的效果；</p>
+
+				<p>如果是自动回复的素材，那对应的自动回复将受到影响，具体为：回复后依旧可以看到封面图、标题，单图文还能看到摘要，但点开时会显示：</p>
+
+				<p><img src="help/image/image050.jpg" style="height:184px; width:219px" /></p>
+
+				<h2><a name="/_Toc464043418">7.2</a>图片素材管理</h2>
+
+				<p>点击&ldquo;图片素材&rdquo;按钮，进入图片素材管理界面。</p>
+
+				<p><img src="help/image/image051.jpg" style="height:327px; width:553px" /></p>
+
+				<p>&nbsp;</p>
+
+				<p>点击右边的按钮&ldquo;本地上传&rdquo;进行图片的上传。</p>
+
+				<p><img src="help/image/image052.jpg" style="height:327px; width:553px" /></p>
+
+				<p>已经上传的图片，可以进行图片名称修改操作，点击图片右下角的按钮，进行名称修改。</p>
+
+				<p><img src="help/image/image053.jpg" style="height:328px; width:553px" /></p>
+
+				<p>&nbsp;</p>
+
+				<p>修改图片名称之后，点击&ldquo;确认&rdquo;按钮。</p>
+
+				<p>鼠标移动到图片上面，出现红色线框，点击右上角的&ldquo;红色叉叉&rdquo;按钮，可以进行删除操作。</p>
+
+				<p><img src="help/image/image054.jpg" style="height:325px; width:553px" /></p>
+
+				<p>点击&ldquo;确定&rdquo;按钮后，进行删除动作。</p>
+
+				<p>选中多个图片之后，可以进行批量删除动作。</p>
+
+				<p><img src="help/image/image055.jpg" style="height:326px; width:553px" /></p>
+
+				<p><img src="help/image/image056.jpg" style="height:328px; width:554px" /></p>
+
+				<p>点击&ldquo;确定&rdquo;按钮后，完成图片批量删除操作。</p>
+
+				<p>&nbsp;</p>
+
+				<p>在右上角输入框里面，输入图片名字，可以进行图片搜索操作。</p>
+
+				<p><img src="help/image/image057.jpg" style="height:309px; width:554px" /></p>
+
+				<h1><a name="/_Toc464043419">8&nbsp;&nbsp;&nbsp; 参数二维码（本功能只在认证服务号上开通）</a></h1>
+
+				<p>点击系统后台左边菜单&ldquo;参数二维码&rdquo;按钮，下面出现两个二级菜单&ldquo;二维码管理&rdquo;、&ldquo;二维码统计&rdquo;，点击&ldquo;二维码管理&rdquo;出现以下界面。</p>
+
+				<p><img src="help/image/image058.jpg" style="height:330px; width:552px" /></p>
+
+				<h2><a name="/_Toc464043420">8.1</a>新建二维码</h2>
+
+				<p>点击左边菜单&ldquo;二维码管理&rdquo;，进入新建二维码界面。</p>
+
+				<p>二维码名称：自定义二维码名称；</p>
+
+				<p>二维码类型：两种类型&mdash;临时二维码和永久二维码，（1）临时二维码：是有过期时间的，最长可以设置为在二维码生成后的7天（即604800秒）后过期，但能够生成较多数量。临时二维码主要用于账号绑定等不要求二维码永久保存的业务场景；（2）永久二维码：是无过期时间的，但数量较少（目前为最多10万个）。永久二维码主要适用于账号绑定、用户来源统计等场景。</p>
+
+				<p>参数二维码：可以上传自己公司的Logo,用于更好的宣传</p>
+
+				<p>扫描关注后的粉丝标签：主要是用于用户扫描二维码，点击关注公众号之后的归属，为关注公众号的粉丝打上标签，方便进行新增粉丝数据的统计</p>
+
+				<p>扫描后是否触发回复：主要是用于用户扫描二维码，点击关注公众号之后，是否推送一条消息给到用户。触发回复类型包括文本、图片、图文消息三种，具体设置同自动回复。</p>
+
+				<p><img src="help/image/image059.jpg" style="height:333px; width:552px" /></p>
+
+				<p><img src="help/image/image060.jpg" style="height:336px; width:553px" /></p>
+
+				<p>点击保存成功之后，跳转到二维码管理界面，如下图：</p>
+
+				<p><img src="help/image/image061.jpg" style="height:328px; width:553px" /></p>
+
+				<p>&nbsp;</p>
+
+				<h2><a name="/_Toc464043421">8.2</a>二维码管理</h2>
+
+				<p>点击按钮&ldquo;二维码管理&rdquo;，进入以下界面。</p>
+
+				<p><img src="help/image/image062.jpg" style="height:332px; width:553px" /></p>
+
+				<p>进入二维码管理界面后，在每一个二维码的右边，有编辑、查看统计详情、下载、删除四个按钮，可以点击对应按钮进行操作。</p>
+
+				<p>点击&ldquo;编辑&rdquo;按钮，进入以下界面，对二维码内容进行对应的编辑。</p>
+
+				<p><img src="help/image/image063.jpg" style="height:342px; width:552px" /></p>
+
+				<p>点击&ldquo;下载&rdquo;按钮，弹出以下窗口，可以根据自己的需要下载不同尺寸的二维码，用于活动等宣传。下载完成后，点击下面的关闭按钮，关闭当前窗口。</p>
+
+				<p><img src="help/image/image064.jpg" style="height:328px; width:553px" /></p>
+
+				<p>点击右边的&ldquo;删除&rdquo;按钮，弹出以下窗口。</p>
+
+				<p><img src="help/image/image065.jpg" style="height:332px; width:553px" /></p>
+
+				<p>点击&ldquo;确定&rdquo;按钮，完成删除操作。</p>
+
+				<p>&nbsp;</p>
+
+				<h2><a name="/_Toc464043422">8.3</a>二维码统计</h2>
+
+				<p>点击左边菜单&ldquo;二维码统计&rdquo;按钮，进入以下界面（在二维码管理界面中，点击右边的操作按钮&ldquo;查看统计详情&rdquo;进入同一个界面）。</p>
+
+				<p>注：如果是从二维码管理界面中的查看统计详情进去到二维码统计，统计界面将默认显示单个二维码的统计；如果是直接从二维码统计界面进入，界面默认显示查看所有二维码</p>
+
+				<p><img src="help/image/image066.jpg" style="height:334px; width:553px" /></p>
+
+				<p>在该页面中，可以进行&ldquo;查看所有二维码&rdquo;、&ldquo;查看单个二维码&rdquo;操作。</p>
+
+				<p>在&ldquo;查看所有二维码&rdquo;选项中，可以通过自定义时间进行查询，在&ldquo;查看单个二维码&rdquo;时，可以通过&ldquo;最近7天&rdquo;、&ldquo;最近15天&rdquo;、&ldquo;最近30天&rdquo;和自定义时间段进行查询。</p>
+
+				<p><img src="help/image/image067.jpg" style="height:332px; width:553px" /></p>
+
+				<p>所有统计数据，提供&ldquo;数据导出&rdquo;功能，点击扫描次数统计右边的&ldquo;导出数据&rdquo;按钮，导出统计数据。</p>
+
+				<p><img src="help/image/image068.jpg" style="height:336px; width:552px" /></p>
+
+				<p>统计数据内容格式如下图：</p>
+
+				<p><img src="help/image/image069.jpg" style="height:293px; width:554px" /></p>
+
+				<h1><a name="/_Toc464043423">9&nbsp;&nbsp;&nbsp; 附件</a></h1>
+
+				<h2><a name="/_Toc464043424">9.1</a>关于功能菜单减少的说明</h2>
+
+				<p>账号类型及认证形式对应的功能菜单如下表所示：</p>
+
+				<p><img src="help/image/image070.jpg" style="height:389px; width:328px" /></p>
+
+				<p>根据微信公众号年审规则：当已认证的微信公众号年审到期，未进行年审，或者年审时未通过审核，认证标识将会被取消，所有认证功能即刻取消，即公众号由已认证变为未认证。因此，对应的功能菜单也相应发生变化。</p>
+
+				<p>详情请查阅：<a href="http://kf.qq.com/faq/120911VrYVrA151009yyYnUJ.html">关于微信认证年审的相关说明</a></p>
+
+				<p>&nbsp;</p>
+
+				<h2><a name="/_Toc464043425">9.2</a>授权绑定失败</h2>
+
+				<p>授权绑定时，用手机扫码后显示&ldquo;绑定失败&rdquo;，可能是由于该公众号授权的第三方平台超过5个（公众号最多可授权给5个第三方平台），可通过解绑其他第三方平台解决。</p>
+
+				<p>登录微信公众平台，左侧导航栏进入&ldquo;功能-添加功能插件&rdquo;，在上方切换进入&ldquo;授权管理&rdquo;，查看已授权的第三方平台。如下图:</p>
+
+				<p><img src="help/image/image071.jpg" style="height:263px; width:553px" /></p>
+
+				<p>点击&ldquo;查看平台详情&rdquo;进入平台详情，点击&ldquo;取消授权&rdquo;进行解绑，如下图：</p>
+
+				<p><img src="help/image/image001.jpg" style="height:326px; width:457px" /></p>
+		</div>
+	</div>
+	<div class="container-fluid c-footer">
+		<div class="container">
+			<p>@ NSW-PCCMS后台管理系统</p>
+		</div>
+	</div>
+</div>
+
+
+
+
+<!-- inject:componentjs -->
+<!-- any *.js files among your sources will go here as: <script src="FILE"></script> -->
+<!-- endinject -->
+
+<!-- inject:programjs -->
+<script type="text/javascript" charset="utf-8" src="../target/conponent.min.js"></script>
+<!-- endinject -->
+</body>
+</html>

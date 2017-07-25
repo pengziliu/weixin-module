@@ -1,0 +1,37 @@
+@charset "UTF-8";
+/*字体*/
+/*颜色*/
+.course-reg-list {
+  position: relative;
+  padding-top: 15px; }
+  .course-reg-list .name > * {
+    cursor: pointer; }
+  .course-reg-list .add-course {
+    position: absolute;
+    right: 0px;
+    top: -35px; }
+
+.course-reg-detail .form-content {
+  line-height: 28px; }
+.course-reg-detail .base-info .footer {
+  padding: 15px 42px; }
+.course-reg-detail .history .footer {
+  padding: 20px 0px; }
+.course-reg-detail .title > img.img-header {
+  width: auto;
+  height: 50px;
+  border-radius: 0;
+  cursor: pointer; }
+
+.radio-col .on, .radio-col .off {
+  display: block;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  border: 1px solid black; }
+.radio-col .on {
+  background-color: #f08300; }
+.radio-col .off {
+  background-color: white; }
+
+/*# sourceMappingURL=course-reg.css.map */

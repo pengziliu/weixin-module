@@ -1,0 +1,46 @@
+.log-search-option{
+  height:60px;
+  
+  padding:16px;
+  margin-top:20px;
+.select-time{
+  width:92px;
+  float:left;
+}
+  .custom-time{
+    float: left;
+    width:710px;
+    margin-left:35px;
+  }
+  .operator{
+    font-size:18px;
+    color:#F18C13;
+  }
+}
+.message-template-list-tab-div{
+  border:1px solid #ccc;
+}
+.log-list{
+  font-size:14px;
+ .message-template-list-tab{
+    font-size:14px;
+    tr td{
+      word-break:break-all;
+    }
+  }
+  .time-quantum{
+  }
+  .form-group{
+    margin-left:40px;
+   >label{
+     font-weight:normal;
+   }
+    input{
+      width:148px;
+    }
+  }
+  .log-search{
+    margin-left: 38px;
+    width: 81px;
+  }
+}

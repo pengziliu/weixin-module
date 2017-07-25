@@ -1,0 +1,412 @@
+@charset "utf-8";
+
+.form-left {
+  float: left;
+  margin-right: 15px;
+}
+
+.mr0 {
+  margin-right: 0;
+}
+
+/*
+*定义面包屑与nsw-form 主键的距离
+*/
+.bread-nav {
+  .nsw_bread_tit {
+    margin-bottom: 18px;
+  }
+}
+
+/*
+*form-body
+*/
+.form-body {
+  display: block;
+  padding-top: 20px;
+  .col-label {
+    display: table-cell;
+  }
+  .form-row {
+    display: block;
+    width: 100%;
+    min-height: 29px;
+    margin-bottom: 32px;
+    &:after {
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+    .start {
+      color: red;
+      position: absolute;
+      top: 2px;
+      left: -8px;
+    }
+    .form-row-label {
+      float: left;
+      line-height: 28px;
+      label {
+        font-weight: normal;
+        margin-bottom: 0;
+      }
+    }
+    .form-row-w100 {
+      width: 100% !important;
+    }
+    .form-row-content {
+      .form-row {
+        margin-bottom: 0px;
+        @at-root .short-title div[data-settings] {
+          position: absolute;
+          width: 100%;
+          top: 29px;
+        }
+      }
+      float: left;
+      .size-xs {
+        width: 100px;
+      }
+      .size-sm {
+        width: 152px;
+      }
+      .size-md {
+        width: 430px;
+      }
+
+      .size-md-m {
+        width: 451px;
+      }
+
+      .size-md-link {
+        width: 391px;
+      }
+
+      .size-md-editor {
+        width: 855px;;
+      }
+
+      .size-lg {
+        width: 600px;
+      }
+    }
+
+  }
+}
+
+.size-xs {
+  width: 100px;
+}
+
+.size-sm {
+  width: 152px;
+}
+
+.size-md {
+  width: 430px;
+}
+
+.size-lg {
+  width: 600px;
+}
+
+.size-ctg {
+  width: 196px;
+}
+
+.size-search {
+  width: 150px;
+}
+
+.size-md-m-desc {
+  width: 451px;
+  & + .input-counter {
+    display: block;
+    float: right;
+    position: relative !important;
+    right: 0 !important;
+  }
+}
+
+.ctg-form {
+  [nsw-form-row] {
+    margin-bottom: 5px;
+  }
+}
+
+/*nsw-text*/
+%icon-clear {
+  width: 30px;
+  height: 29px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  display: inline-block;
+  cursor: pointer;
+  background: url("../images/icon-clear.jpg") no-repeat center center;
+}
+
+.nsw-text {
+  position: relative;
+  float: left;
+  input {
+    padding-right: 30px;
+  }
+  .icon-clear {
+    @extend %icon-clear
+  }
+  .count {
+    position: absolute;
+    top: 5px;
+    right: -84px;
+    width: 70px;
+    color: grey;
+  }
+  .count2 {
+    right: 0;
+    top: -20px;
+    width: auto;
+  }
+}
+
+.icon-clear {
+  @extend %icon-clear;
+}
+
+.nsw-text-suffix {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1;
+  color: #555;
+  text-align: center;
+  background-color: #eee;
+  border: 1px solid #dcdcdc;
+  border-radius: 0;
+  width: 56px;
+  height: 29px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 14px;
+}
+
+.text-suffix {
+  .icon-clear {
+    right: 56px;
+  }
+}
+
+/*nsw-checkbox
+*
+*
+*/
+.nsw-checkbox {
+  cursor: pointer;
+  padding-right: 15px;
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 26px;
+  .nsw-icon {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  label {
+    cursor: pointer;
+    padding-left: 5px;
+    font-weight: normal;
+    vertical-align: middle;
+    margin-bottom: 0px;
+  }
+}
+
+.nsw-check-box {
+  padding: 0 10px;
+  margin-right: 10px;
+  line-height: 26px;
+  border: 1px solid #cccccc;
+  float: left;
+  &.checked {
+    border-color: $promise-color;
+    background: $promise-color;
+    color: #fff;
+  }
+}
+
+.nsw-tool-checkbox {
+  display: inline-block;
+  .nsw-checkbox {
+    padding-right: 0;
+    margin-left: 12px;
+  }
+  .icon-checkbox {
+    display: block;
+    position: relative;
+    top: auto;
+  }
+}
+
+.nsw-radio {
+  cursor: pointer;
+  position: relative;
+  float: left;
+  padding-right: 15px;
+  .nsw-icon {
+    position: absolute;
+    top: 6px;
+  }
+  label {
+    cursor: pointer;
+    padding-left: 20px;
+    padding-top: 5px;
+  }
+}
+
+/* 下拉nsw-dropdown*/
+.nsw-dropdown {
+  position: relative;
+  .nsw-dropdown-menu {
+    max-height: 160px;
+    overflow-y: auto;
+    width: 100%;
+  }
+  .input-group-addon {
+    .dropdown {
+      position: inherit;
+    }
+    .dropdown-toggle {
+      width: 24px;
+      padding: 0;
+      height: 24px;
+      padding-top: 5px;
+    }
+
+    li.focused a {
+      color: #f08300;
+      font-weight: bolder;
+    }
+
+    padding: 0;
+
+    &.clear {
+      position: absolute;
+      right: 25px;
+      z-index: 999;
+    }
+  }
+}
+
+/*
+*nsw-time-picker
+*
+**/
+.date-range-picker{
+  width:220px !important;
+}
+.range-picke {
+  min-width:180px;
+  position: relative;
+  .glyphicon-calendar {
+    position: absolute;
+    bottom: 7px;
+    right: 7px;
+    top: auto;
+    cursor: pointer;
+  }
+  .icon-clear {
+    width: 12px;
+    height: 14px;
+    position: absolute;
+    bottom: 7px;
+    right: 24px;
+    top: auto;
+    cursor: pointer;
+  }
+  .has-remove {
+    right: 24px;
+  }
+}
+
+/*
+*nsw-tpl
+*/
+.nsw-tpl {
+  .product-tpl {
+    display: block;
+    overflow: hidden;
+    width: 602px;
+    margin: 0;
+    padding: 0;
+    word-spacing: -6px;
+    .product-tpl-list {
+      list-style: none;
+      padding: 5px 5px 10px;
+      vertical-align: top;
+      width: 25%;
+      height: 208px;
+      line-height: 208px;
+      display: inline-table;
+      .tpl-img {
+        padding: 1px;
+        border: 1px solid #ccc;
+        position: relative;
+        .fa {
+          position: absolute;
+          top: 0;
+          right: 0;
+          background-color: green;
+          color: #fff;
+          font-size: 18px;
+        }
+        .product-tpl-picture {
+          vertical-align: middle;
+          width: 100%;
+          max-height: 210px;
+        }
+      }
+      .product-tpl-picture-text {
+        text-align: center;
+        display: block;
+        line-height: 30px;
+      }
+    }
+  }
+}
+
+.nsw-tab-viewer {
+  padding: 15px;
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+.emptyInput:hover + .emptyInput-icon, .emptyInput-icon:hover {
+  display: inline-block;
+}
+
+.emptyInput-icon {
+  display: none;
+  position: absolute;
+  top: 8px;
+  right: 25px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.formMinWidth {
+  min-width: 920px;
+}
+
+.form-group-bar {
+  float: none;
+  border-bottom: 1px solid $promise-color;
+}
+
+.form-group-header {
+  div.form-row {
+    margin-bottom: 15px;
+
+  }
+}

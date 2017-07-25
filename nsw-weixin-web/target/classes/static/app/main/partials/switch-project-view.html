@@ -1,0 +1,42 @@
+<div class="switch-project">
+	<div class="row">
+		<div class="col-xs-12">
+			<div platform-bread-nav="breadNavs" ></div>
+		</div>
+	</div>
+	<div class="switch-project">
+		<div class="title">
+			提示：请选择一个项目进行编辑或管理
+		</div>
+		<div data-ng-repeat="enterptise in enterprises">
+			<div class="project-list-panel" data-ng-repeat="projectsgroup in enterptise.portfolios">
+				<div class="header">
+					<span>项目名称：</span><b data-ng-bind="projectsgroup.projectName"></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>企业名称：</span><b>{{enterptise.enterpriseName}}</b>
+				</div>
+				<div class="panel-body">
+					<ul class="panel-body-left">
+						<li data-ng-repeat="project in projectsgroup.projects">
+							<div class="icon" ng-class = "{'4':'pc-icon','9':'pc-icon','5':'mc-icon','10':'mc-icon','7':'wechat-icon'}[project.websiteType]"></div>
+							<button data-ng-if="project.websiteType!=='7'"  data-ng-click="selectProject(project)">
+								管理网站
+							</button>
+							<button  data-ng-if="project.websiteType ==='7'" data-ng-click="goToWechat(project)" >
+								管理微信
+							</button>
+						</li>
+					</ul>
+					<div class="panel-body-right">
+						<!--<a href="javascript:void(0);" class="nsw-klass">-->
+						<!--牛商微讲堂-->
+						<!--</a>-->
+						<p class="project-info"><span data-ng-bind="projectsgroup.info"></span></p>
+						<p data-ng-if="projectsgroup.projects[0].websiteType!=='7'">{{ projectsgroup.projects[0].language !== 'zh_CN'?'英文':'中文'}}</p>
+						<!--<p>到期时间：2016-12-15 24:00:00</p>-->
+						<!--<p>项目状态：<span class="project-state">运行中</span></p>-->
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
